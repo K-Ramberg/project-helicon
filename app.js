@@ -30,7 +30,7 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 })
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', indexRouter);
+app.use('/api/users', usersRouter);
 
 module.exports = app;
