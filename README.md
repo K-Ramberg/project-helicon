@@ -3,6 +3,8 @@ MERN stack application for thoughts and inspirations
 
 trello baord link: https://trello.com/b/ckRgITkF
 
+heroku app link https://helicon-project.herokuapp.com/
+
 ### ERD 
 ![](https://github.com/K-Ramberg/project-helicon/blob/master/ERD/erd2.jpg)
 
