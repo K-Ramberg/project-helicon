@@ -34,7 +34,7 @@ const userSchema = new Schema({
         type: String,
         default: 'Joe bag of Doughnuts'
     },
-    aboutMe: {
+    description: {
         type: String,
         default: "Amature composer, champion consumer of doughnuts"
     },

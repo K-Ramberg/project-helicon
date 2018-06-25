@@ -51,7 +51,7 @@ const testMuse5 = new MuseModel({
 
 const testUser1 = new UserModel({
     name: "Johan Schmidt",
-    description: "ambiguously North-German. Enjoys walks. Incorrect threories about Music Theory",
+    description: "ambiguously North-German. Enjoys walks. Incorrect theories about Music Theory",
     muses: [testMuse1,testMuse2,testMuse3]
 })
 
