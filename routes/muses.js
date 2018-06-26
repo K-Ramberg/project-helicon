@@ -28,4 +28,21 @@ router.post('/', (req, res) => {
   })
 })
 
+router.patch('/:id', async(req, res) => {
+  const user = await UserModel.findById(req.params.userId)
+  const museId = req.params.id
+  const editedMuse = user.muses.id(museId)
+    editedMuse.name = req.body.name
+    editedMuse.description = req.body.description
+    editedMuse.keySignature = req.body.keySignature
+    editedMuse.timeSignature = req.body.timeSignature
+    editedMuse.tempoBps = req.body.tempoBps
+    editedMuse.tuningHz = req.body.tuningHz
+    
+    const savedUser = await user.save()
+    res.send({
+      user: savedUser
+    })
+})
+
 module.exports = router;
