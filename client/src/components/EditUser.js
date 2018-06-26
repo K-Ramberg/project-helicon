@@ -28,6 +28,10 @@ class EditUser extends Component {
     }
 
     handleUserInfoUpdateSubmit() {
+        const userId = this.props.match.params.userId
+        axios.patch(`/api/users/${userId}`, this.state.user).then((res) => {
+            console.log(res)
+        })
 
     }
 
@@ -41,16 +45,18 @@ class EditUser extends Component {
                     <input type="text"
                         name="name"
                         value={user.name}
-                        onChange={(event) => this.handleUserInfoChange(event)} />
+                        onChange={(event) => this.handleUserInfoChange(event)} 
+                        onBlur={()=> this.handleUserInfoUpdateSubmit()}/>
                 </div>
                 <div>
                     <label htmlFor="description">Change About Me</label>
                     <input type="text"
                         name="description"
                         value={user.description}
-                        onChange={(keyPressEvent) => this.handleUserInfoChange(keyPressEvent)} />
+                        onChange={(keyPressEvent) => this.handleUserInfoChange(keyPressEvent)} 
+                        onBlur={()=> this.handleUserInfoUpdateSubmit()}/>
                 </div>
-                <Link to={`/users/${user._id}`}>Cancel</Link>
+                <Link to={`/users/${user._id}`}>Back to User</Link>
             </div>
         );
     }

@@ -14,8 +14,8 @@ connection.on('error', (err) => {
     console.log('Mongoose default connection error: ' + err)
   })
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./Routes/index');
+var usersRouter = require('./Routes/users');
 
 var app = express();
 
