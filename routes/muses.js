@@ -3,9 +3,9 @@ var router = express.Router({mergeParams: true});
 const { UserModel, MuseModel } = require('../db/schema')
 
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
 
 router.get('/:id', async (req,res) => {
   const user = await UserModel.findById(req.params.userId)
