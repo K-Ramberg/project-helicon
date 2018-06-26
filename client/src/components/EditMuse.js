@@ -26,13 +26,42 @@ class EditMuse extends Component {
         })
     }
 
+    handleMuseInfoChange = (event) => {
+        console.log(event.target.value)
+    }
+
     render() {
         const user = this.state.user
         const muse = this.state.muse
         return (
             <div>
-                edit {muse.name} by {user.name} here
-                
+                <h4>edit {muse.name} by {user.name} here</h4>
+                <div>
+                    <div>
+                        <label htmlFor="name">Name:</label>
+                        <input type="text" name="name" value={muse.name} onChange={this.handleMuseInfoChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="description">Describe It:</label>
+                        <textarea type="text" name="description" value={muse.description} onChange={this.handleMuseInfoChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="keySignature">Key Signature:</label>
+                        <input type="text" name="keySignature" value={muse.keySignature} onChange={this.handleMuseInfoChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="timeSignature">Time Signature:</label>
+                        <input type="text" name="timeSignature" value={muse.timeSignature} onChange={this.handleMuseInfoChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="tempoBps">Tempo:</label>
+                        <input type="number" name="tempoBps" value={muse.tempoBps} onChange={this.handleMuseInfoChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="tuningHz">Tuning:</label>
+                        <input type="number" name="tuningHz" value={muse.tuningHz} onChange={this.handleMuseInfoChange} />
+                    </div>
+                </div>
                 <div>
                     <Link to={`/users/${user._id}/muses/${muse._id}`}>go back</Link>
                 </div>
