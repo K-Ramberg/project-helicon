@@ -42,6 +42,15 @@ class EditMuse extends Component {
         })
     }
 
+    deleteMuse = (event) => {
+        const museId = this.props.match.params.museId
+        const userId = this.props.match.params.userId
+        axios.delete(`/api/users/${userId}/muses/${museId}`).then((res)=>{
+            console.log(res)
+            this.props.history.push(`/users/${userId}`)
+        })  
+    }
+
     render() {
         const user = this.state.user
         const muse = this.state.muse
@@ -73,6 +82,9 @@ class EditMuse extends Component {
                         <label htmlFor="tuningHz">Tuning:</label>
                         <input type="number" name="tuningHz" value={muse.tuningHz} onChange={this.handleMuseInfoChange} onBlur={()=> this.handleMuseInfoUpdateSubmit()}/>
                     </div>
+                </div>
+                <div>
+                    <button onClick={(event) => this.deleteMuse(event)}>Delete This</button>
                 </div>
                 <div>
                     <Link to={`/users/${user._id}/muses/${muse._id}`}>go back</Link>
