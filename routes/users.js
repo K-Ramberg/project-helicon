@@ -25,8 +25,15 @@ router.post('/', (req, res) => {
 })
 
 router.patch('/:id', async (req, res) => {
-  const updatedUser = await UserModel.findByIdAndUpdate(req.params.id, req.body, { new:true })
+  const updatedUser = await UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
   res.send(updatedUser)
+})
+
+router.delete('/:id', (req, res) => {
+  UserModel.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.send("goodbye")
+    })
 })
 
 module.exports = router;

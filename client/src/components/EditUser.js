@@ -19,7 +19,7 @@ class EditUser extends Component {
         })
     }
 
-    handleUserInfoChange(event) {
+    handleUserInfoChange = (event) => {
         const keyNameValueOfInput = event.target.name
         const userInput = event.target.value
         const cloneState = {...this.state}
@@ -27,12 +27,19 @@ class EditUser extends Component {
         this.setState(cloneState)
     }
 
-    handleUserInfoUpdateSubmit() {
+    handleUserInfoUpdateSubmit = () => {
         const userId = this.props.match.params.userId
         axios.patch(`/api/users/${userId}`, this.state.user).then((res) => {
             console.log(res)
         })
+    }
 
+    deleteUser = (event) => {
+        const userId = this.props.match.params.userId
+        axios.delete(`/api/users/${userId}`).then((res)=>{
+            console.log(res)
+            this.props.history.push(`/users`)
+        })
     }
 
     render() {
@@ -55,6 +62,9 @@ class EditUser extends Component {
                         value={user.description}
                         onChange={(keyPressEvent) => this.handleUserInfoChange(keyPressEvent)} 
                         onBlur={()=> this.handleUserInfoUpdateSubmit()}/>
+                </div>
+                <div>
+                    <button onClick={(event) => this.deleteUser(event)}>Delete user?</button>
                 </div>
                 <Link to={`/users/${user._id}`}>Back to User</Link>
             </div>
