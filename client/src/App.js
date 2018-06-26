@@ -6,6 +6,7 @@ import Home from './components/Home';
 import EditUser from './components/EditUser';
 import MuseShow from './components/MuseShow';
 import MuseCreate from './components/MuseCreate';
+import EditMuse from './components/EditMuse';
 
 
 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route exact path='/users/:userId/edit' component={EditUser}/>
             <Route exact path='/users/:userId/muses/new' component={MuseCreate}/>
             <Route exact path='/users/:userId/muses/:museId' component={MuseShow}/>
+            <Route exact path='/users/:userId/muses/:museId/edit' component={EditMuse}/>
           </Switch>
         </div>
       </Router>

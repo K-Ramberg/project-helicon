@@ -44,6 +44,9 @@ class MuseShow extends Component {
                 <div>
                     <Link to={`/users/${user._id}`}>back to {user.name}'s page</Link>
                 </div>
+                <div>
+                    <Link to={`/users/${user._id}/muses/${muse._id}/edit`}>Edit this</Link>
+                </div>
             </div>
         );
     }
