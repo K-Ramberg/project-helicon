@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class UserShow extends Component {
     
@@ -22,6 +23,7 @@ class UserShow extends Component {
             <div>
                 <h3>{user.name}</h3>
                 <h4>{user.description}</h4>
+                <Link to={`/users/${user._id}/edit`}>Edit Yourself</Link>
             </div>
         );
     }
