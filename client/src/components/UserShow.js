@@ -37,7 +37,7 @@ class UserShow extends Component {
                         )
                     })}
                     <p>
-                        <Link to={`/users/${user._id}/muses/new`}>carry a muse</Link>
+                        <Link to={`/users/${user._id}/muses/new`}>Add a Muse</Link>
                     </p>
                 </div>
             </div>
