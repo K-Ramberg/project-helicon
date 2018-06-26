@@ -32,6 +32,12 @@ class MuseCreate extends Component {
         console.log(this.state.newMuse) 
     }
 
+    handleNewMuseSubmission = (event) => {
+        event.preventDefault()
+        const userId = this.props.match.params.userId
+        
+    }
+
     render() {
         const user = this.state.user
         const newMuse = this.state.newMuse
