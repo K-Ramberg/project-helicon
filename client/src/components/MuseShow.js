@@ -13,7 +13,6 @@ class MuseShow extends Component {
         const museId = this.props.match.params.museId
         const userId = this.props.match.params.userId
         axios.get(`/api/users/${userId}/muses/${museId}`).then((res)=> {
-            console.log(res)
             this.setState({
                 user: res.data.user,
                 muse: res.data.muse

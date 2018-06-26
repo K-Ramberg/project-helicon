@@ -36,6 +36,9 @@ class UserShow extends Component {
                             </div>
                         )
                     })}
+                    <p>
+                        <button>carry a muse</button>
+                    </p>
                 </div>
             </div>
         );
