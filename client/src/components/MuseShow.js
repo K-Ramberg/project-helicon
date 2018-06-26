@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class MuseShow extends Component {
 
@@ -26,6 +27,24 @@ class MuseShow extends Component {
         return (
             <div>
                 <h4>{muse.name} by {user.name}</h4>
+                <p>
+                    About: {muse.description}
+                </p>
+                <div>
+                    In the key of: {muse.keySignature}
+                </div>
+                <div>
+                    In {muse.timeSignature} time
+                </div>
+                <div>
+                    at {muse.tempoBps}bps
+                </div>
+                <div>
+                    A = {muse.tuningHz}Hz
+                </div>
+                <div>
+                    <Link to={`/users/${user._id}`}>back to {user.name}'s page</Link>
+                </div>
             </div>
         );
     }
