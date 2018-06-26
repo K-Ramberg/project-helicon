@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', (req, res) => {
   UserModel.findById(req.params.userId).then((user) => {
-    const newMuse = await new MuseModel(req.body)
+    const newMuse = new MuseModel(req.body)
     user.muses.push(newMuse)
     return user.save()
   }).then(savedUser => {

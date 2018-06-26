@@ -26,16 +26,17 @@ class MuseCreate extends Component {
     handleMuseInfoChange = (event) => {
         const keyNameValueOfInput = event.target.name
         const userInput = event.target.value
-        const cloneState = {...this.state}
+        const cloneState = { ...this.state }
         cloneState.newMuse[keyNameValueOfInput] = userInput
         this.setState(cloneState)
-        console.log(this.state.newMuse) 
     }
 
     handleNewMuseSubmission = (event) => {
         event.preventDefault()
         const userId = this.props.match.params.userId
-        
+        axios.post(`/api/users/${userId}/muses`, this.state.newMuse).then((res) => {
+            this.props.history.push(`/users/${userId}`)
+        })
     }
 
     render() {
@@ -45,30 +46,30 @@ class MuseCreate extends Component {
             <div>
                 <h3>making muses for {user.name}</h3>
                 <div>
-                    <form>
+                    <form onSubmit={this.handleNewMuseSubmission}>
                         <div>
                             <label htmlFor="name">Name:</label>
-                            <input type="text" name="name" value={newMuse.name} placeholder="I call it..." onChange={this.handleMuseInfoChange}/>
+                            <input type="text" name="name" value={newMuse.name} placeholder="I call it..." onChange={this.handleMuseInfoChange} />
                         </div>
                         <div>
                             <label htmlFor="description">Describe It:</label>
-                            <textarea type="text" name="description" value={newMuse.description} placeholder="It goes like..." onChange={this.handleMuseInfoChange}/>
+                            <textarea type="text" name="description" value={newMuse.description} placeholder="It goes like..." onChange={this.handleMuseInfoChange} />
                         </div>
                         <div>
                             <label htmlFor="keySignature">Key Signature:</label>
-                            <input type="text" name="keySignature" value={newMuse.keySignature} placeholder="in the key of..." onChange={this.handleMuseInfoChange}/>
+                            <input type="text" name="keySignature" value={newMuse.keySignature} placeholder="in the key of..." onChange={this.handleMuseInfoChange} />
                         </div>
                         <div>
                             <label htmlFor="timeSignature">Time Signature:</label>
-                            <input type="text" name="timeSignature" value={newMuse.timeSignature} placeholder="beats per measure" onChange={this.handleMuseInfoChange}/>
+                            <input type="text" name="timeSignature" value={newMuse.timeSignature} placeholder="beats per measure" onChange={this.handleMuseInfoChange} />
                         </div>
                         <div>
                             <label htmlFor="tempoBps">Tempo:</label>
-                            <input type="number" name="tempoBps" value={newMuse.tempoBps} placeholder="beats per minute" onChange={this.handleMuseInfoChange}/>
+                            <input type="number" name="tempoBps" value={newMuse.tempoBps} placeholder="beats per minute" onChange={this.handleMuseInfoChange} />
                         </div>
                         <div>
                             <label htmlFor="tuningHz">Tuning:</label>
-                            <input type="number" name="tuningHz" value={newMuse.tuningHz} placeholder="in Hz" onChange={this.handleMuseInfoChange}/>
+                            <input type="number" name="tuningHz" value={newMuse.tuningHz} placeholder="in Hz" onChange={this.handleMuseInfoChange} />
                         </div>
                         <button type="submit">Carry a Muse</button>
                     </form>
