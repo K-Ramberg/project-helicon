@@ -79,7 +79,7 @@ class Composition extends Component {
                                     const compVal = i
                                     return (
                                         <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                            {reach === 1? <NotePlace></NotePlace>: reach}
+                                            {index%2 === 0? <BelowStaff>{reach === 1? <NotePlace></NotePlace>:null}</BelowStaff>: <StaffLine>{reach === 1? <LineNotePlace></LineNotePlace>:null}</StaffLine>}
                                         </div>
                                     )
                                 })}
@@ -88,15 +88,15 @@ class Composition extends Component {
                     })}
                     <NoteSpaceFormer>
                         <NotePlaceHolder indexProp={0} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <LineNotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={2} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NotePlaceHolder indexProp={3} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <LineNotePlaceHolder indexProp={3} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={4} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NotePlaceHolder indexProp={5} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <LineNotePlaceHolder indexProp={5} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={6} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NotePlaceHolder indexProp={7} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <LineNotePlaceHolder indexProp={7} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={8} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <LineNotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                     </NoteSpaceFormer>
                 </div>

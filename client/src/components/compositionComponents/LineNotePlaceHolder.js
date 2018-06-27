@@ -12,7 +12,7 @@ const LineNoteHolder = styled.div`
 class LineNotePlaceHolder extends Component {
 
     handleClick = (event) => {
-        this.props.changeComponentState(event)
+        this.props.changeComponentState(event, this.props.indexProp)
     }
 
     render() {
