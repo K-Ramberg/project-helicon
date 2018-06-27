@@ -1,6 +1,13 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const compostionSchema = new Schema({
+    notePlaces:{
+        type: Array,
+        default: [0,0,0,0,0,0,0,0,0,0,0]
+    }
+})
+
 const museSchema = new Schema({
     name: {
         type: String,
@@ -25,7 +32,8 @@ const museSchema = new Schema({
     tuningHz: {
         type: Number,
         default: 440
-    }
+    },
+    compositions: [compostionSchema]
 })
 
 

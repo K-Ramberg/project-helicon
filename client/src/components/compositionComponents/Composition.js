@@ -4,33 +4,35 @@ import NotePlaceHolder from './NotePlaceHolder';
 import LineNotePlaceHolder from './LineNotePlaceHolder';
 
 const StaffLine = styled.div`
-    border-top: 0.5vh solid black;
-    background: yellow;
+    border-top: 0.39vh solid black;
+    background: none;
 `
-const AboveStaff = styled.div`
-    background: rgba(40,0,0,0.2);
-    height: 2vh;
-`
+// const AboveStaff = styled.div`
+//     background: rgba(40,0,0,0.2);
+//     height: 2vh;
+// `
 const BelowStaff = styled.div`
-    background: rgba(60,0,0,0.3);
-    height: 2vh;
+    background: rgba(0,0,0,0.0);
+    height: 4vh;
 `
 const NotePlace = styled.div`
     border: 1px solid black;
     background: black;
-    border-radius: 100%;
+    border-radius: 100% 70% 100% 70%;
     width: 20px;
-    height: 2vh;
+    height: 3.7vh;
     float:left;
 `
 const LineNotePlace = styled.div`
     border: 1px solid black;
     background: black;
-    border-radius: 100%;
+    border-radius: 100% 70% 100% 70%;
     width: 20px;
-    height: 2vh;
+    height: 3.5vh;
     float: left;
-    margin-top: -1.5vh;
+    margin-top: -1.9vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
 `
 const NoteSpaceFormer = styled.div`
     float: left;
@@ -40,8 +42,9 @@ class Composition extends Component {
 
     state = {
         comp: [
-            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0]
         ],
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }

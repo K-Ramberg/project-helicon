@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const LineNoteHolder = styled.div`
-    height: 2vh;
-    width: 20px;
-    background: rgba(0,255,0,0.5);
-    float: left;
-    margin-top: -1.5vh;
+    border-bottom: 0.4vh solid black;
+    height: 0.39vh;
+    width: 30px;
+    background: rgba(0,0,0,0.0);
 `
 
 class LineNotePlaceHolder extends Component {
