@@ -7,6 +7,7 @@ import EditUser from './components/EditUser';
 import MuseShow from './components/MuseShow';
 import MuseCreate from './components/MuseCreate';
 import EditMuse from './components/EditMuse';
+import Composition from './components/Composition';
 
 
 
@@ -18,10 +19,12 @@ class App extends Component {
           <nav>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
+            <Link to='/users/compostion'>Compose</Link>
           </nav> 
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/users' component={UserHome} />
+            <Route exact path='/users/compostion' component={Composition}/>
             <Route exact path='/users/:userId' component={UserShow}/>
             <Route exact path='/users/:userId/edit' component={EditUser}/>
             <Route exact path='/users/:userId/muses/new' component={MuseCreate}/>
