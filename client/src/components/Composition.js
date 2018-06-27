@@ -19,6 +19,16 @@ const NotePlace = styled.div`
     border-radius: 100%;
     width: 20px;
     height: 2vh;
+    float:left;
+`
+const LineNotePlace = styled.div`
+    border: 1px solid black;
+    background: black;
+    border-radius: 100%;
+    width: 20px;
+    height: 2vh;
+    float: left;
+    margin-top: -1.5vh;
 `
 
 class Composition extends Component {
@@ -38,7 +48,7 @@ class Composition extends Component {
                     {this.state.stafflines.map((each, i) => {
                         return (
                             <div key={i}>
-                                <StaffLine></StaffLine>
+                                <StaffLine><LineNotePlace></LineNotePlace></StaffLine>
                                 <BelowStaff><NotePlace></NotePlace></BelowStaff>
                             </div>
                         )
