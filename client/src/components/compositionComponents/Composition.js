@@ -39,7 +39,6 @@ const NoteSpaceFormer = styled.div`
 class Composition extends Component {
 
     state = {
-        selectorOptions: Array(9),
         comp: [
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0]
@@ -80,7 +79,7 @@ class Composition extends Component {
                                     const compVal = i
                                     return (
                                         <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                            {reach}
+                                            {reach === 1? <NotePlace></NotePlace>: reach}
                                         </div>
                                     )
                                 })}

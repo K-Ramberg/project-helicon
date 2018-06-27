@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const NoteHolder = styled.div`
-    height: 2vh;
+    height: 3vh;
     width: 20px;
+    border-bottom: solid black;
     background: rgba(0,0,255,0.6);
 `
 
