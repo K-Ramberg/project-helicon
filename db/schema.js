@@ -1,11 +1,19 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const compostionSchema = new Schema({
-    notePlaces:{
+const notePlacementSchema = new Schema({
+    notePlacement: {
         type: Array,
-        default: [0,0,0,0,0,0,0,0,0,0,0]
+        default: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
+})
+
+const compostionSchema = new Schema({
+    name: {
+        type: String,
+        default: "new Comp"
+    },
+    notePlaces: [notePlacementSchema]
 })
 
 const museSchema = new Schema({
@@ -49,10 +57,14 @@ const userSchema = new Schema({
     muses: [museSchema]
 })
 
+const NotePLacementModel = mongoose.model('notePlacer', notePlacementSchema)
+const CompositionModel = mongoose.model('composition', compostionSchema)
 const MuseModel = mongoose.model('muse', museSchema)
 const UserModel = mongoose.model('user', userSchema)
 
 module.exports = {
     MuseModel,
-    UserModel
+    UserModel,
+    CompositionModel,
+    NotePLacementModel
 }
