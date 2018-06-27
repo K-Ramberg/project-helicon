@@ -42,7 +42,7 @@ class Composition extends Component {
         selectorOptions: Array(9),
         comp: [
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0]
+            [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0]
         ],
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
@@ -59,6 +59,11 @@ class Composition extends Component {
         })
     }
 
+    existingNoteStateChange = (event, keyVal) => {
+        console.log(event.target)
+        console.log(keyVal)
+    }
+
     render() {
         return (
             <div>
@@ -67,9 +72,10 @@ class Composition extends Component {
                     {this.state.comp.map((each, i) => {
                         return (
                             <NoteSpaceFormer key={i}>
-                                {each.map((reach, i) => {
+                                {each.map((reach, index) => {
+                                    const keyVal = index
                                     return (
-                                        <div key={i}>
+                                        <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal)}>
                                             {reach}
                                         </div>
                                     )
@@ -77,13 +83,6 @@ class Composition extends Component {
                             </NoteSpaceFormer>
                         )
                     })}
-                    {/* <NoteSpaceFormer>
-                        {this.state.selectorOptions.map((each,i)=>{
-                            return(
-                                <NotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></NotePlaceHolder> 
-                            )
-                        })}
-                    </NoteSpaceFormer> */}
                     <NoteSpaceFormer>
                         <NotePlaceHolder indexProp={0} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <NotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></NotePlaceHolder>
