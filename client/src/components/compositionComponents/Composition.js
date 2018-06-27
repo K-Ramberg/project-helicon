@@ -58,8 +58,13 @@ class Composition extends Component {
     }
 
     existingNoteStateChange = (event, keyVal, compVal) => {
-        console.log(keyVal)
-        console.log(compVal)
+        const newCompArray = [...this.state.comp]
+        newCompArray[compVal][keyVal] === 1 ?
+            newCompArray[compVal][keyVal] = 0:
+            newCompArray[compVal][keyVal] = 1
+        this.setState({
+            comp: newCompArray
+        })
     }
 
     render() {
