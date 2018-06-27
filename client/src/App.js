@@ -7,11 +7,12 @@ import EditUser from './components/EditUser';
 import MuseShow from './components/MuseShow';
 import MuseCreate from './components/MuseCreate';
 import EditMuse from './components/EditMuse';
-import Composition from './components/Composition';
+import Composition from './components/compositionComponents/Composition';
 
 
 
 class App extends Component {
+  
   render() {
     return (
       <Router>
