@@ -10,7 +10,7 @@ const NoteHolder = styled.div`
 class NotePlaceHolder extends Component {
 
     handleClick = (event) => {
-        this.props.changeComponentState(event)
+        this.props.changeComponentState(event, this.props.indexProp)
     }
 
     render() {

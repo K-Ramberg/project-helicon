@@ -32,13 +32,14 @@ const LineNotePlace = styled.div`
     float: left;
     margin-top: -1.5vh;
 `
-const NoteSpace = styled.div`
+const NoteSpaceFormer = styled.div`
     float: left;
 `
 
 class Composition extends Component {
 
     state = {
+        selectorOptions: Array(9),
         comp: [
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0]
@@ -46,28 +47,56 @@ class Composition extends Component {
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
 
+    changeComponentState = (event, index) => {
+        console.log(event.target)
+        console.log(index)
+        const newSpace = [...this.state.beatSpaces]
+        newSpace[index]= 1
+        const newCompArray = [...this.state.comp]
+        newCompArray.push(newSpace)
+        this.setState({
+            comp: newCompArray
+        })
+    }
+
     render() {
-        const beatSpaces = this.state.beatSpaces
         return (
             <div>
                 <h1>comp here</h1>
                 <div>
-                    {this.state.comp.map((each) => {
+                    {this.state.comp.map((each, i) => {
                         return (
-                            <NoteSpace>
-                                {each.map((reach) => {
+                            <NoteSpaceFormer key={i}>
+                                {each.map((reach, i) => {
                                     return (
-                                        <div>
+                                        <div key={i}>
                                             {reach}
                                         </div>
                                     )
                                 })}
-                            </NoteSpace>
+                            </NoteSpaceFormer>
                         )
                     })}
-                    <NoteSpace>
-                        woot
-                    </NoteSpace>
+                    {/* <NoteSpaceFormer>
+                        {this.state.selectorOptions.map((each,i)=>{
+                            return(
+                                <NotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></NotePlaceHolder> 
+                            )
+                        })}
+                    </NoteSpaceFormer> */}
+                    <NoteSpaceFormer>
+                        <NotePlaceHolder indexProp={0} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={2} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={3} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={4} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={5} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={6} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={7} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={8} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                    </NoteSpaceFormer>
                 </div>
             </div>
         );
