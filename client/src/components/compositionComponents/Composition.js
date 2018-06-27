@@ -48,8 +48,6 @@ class Composition extends Component {
     }
 
     changeComponentState = (event, index) => {
-        console.log(event.target)
-        console.log(index)
         const newSpace = [...this.state.beatSpaces]
         newSpace[index]= 1
         const newCompArray = [...this.state.comp]
@@ -59,9 +57,9 @@ class Composition extends Component {
         })
     }
 
-    existingNoteStateChange = (event, keyVal) => {
-        console.log(event.target)
+    existingNoteStateChange = (event, keyVal, compVal) => {
         console.log(keyVal)
+        console.log(compVal)
     }
 
     render() {
@@ -74,8 +72,9 @@ class Composition extends Component {
                             <NoteSpaceFormer key={i}>
                                 {each.map((reach, index) => {
                                     const keyVal = index
+                                    const compVal = i
                                     return (
-                                        <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal)}>
+                                        <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
                                             {reach}
                                         </div>
                                     )
