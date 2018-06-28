@@ -53,7 +53,7 @@ class MuseShow extends Component {
                     {compositions.map((each) => {
                         return (
                             <div key={each._id}>
-                                {each.name}
+                                <Link to={`/users/${user._id}/muses/${muse._id}/comps/${each._id}`}>{each.name}</Link>
                             </div>
                         )
                     })}

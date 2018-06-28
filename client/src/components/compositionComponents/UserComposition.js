@@ -34,7 +34,7 @@ const NoteSpaceFormer = styled.div`
     float: left;
 `
 
-class Composition extends Component {
+class UserComposition extends Component {
 
     state = {
         comp: [
@@ -68,7 +68,7 @@ class Composition extends Component {
     render() {
         return (
             <div>
-                <h1>Free Compose</h1>
+                <h1>USER Compose</h1>
                 <div>
                     {this.state.comp.map((each, i) => {
                         return (
@@ -104,4 +104,4 @@ class Composition extends Component {
     }
 }
 
-export default Composition;
+export default UserComposition;
