@@ -42,9 +42,9 @@ class Composition extends Component {
 
     state = {
         comp: [
-            [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ],
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
@@ -72,7 +72,7 @@ class Composition extends Component {
     render() {
         return (
             <div>
-                <h1>comp here</h1>
+                <h1>Free Compose</h1>
                 <div>
                     {this.state.comp.map((each, i) => {
                         return (

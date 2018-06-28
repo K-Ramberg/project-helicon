@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import styled from 'styled-components'
 import UserHome from './components/UserIndex';
 import UserShow from './components/UserShow';
 import Home from './components/Home';
@@ -9,7 +10,11 @@ import MuseCreate from './components/MuseCreate';
 import EditMuse from './components/EditMuse';
 import Composition from './components/compositionComponents/Composition';
 
-
+const NavStyle = styled.div`
+  a {
+    margin: 0 20px;
+  }
+`
 
 class App extends Component {
   
@@ -17,11 +22,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
+          <NavStyle>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
-            <Link to='/users/compostion'>Compose</Link>
-          </nav> 
+            <Link to='/users/compostion'>Free Compose</Link>
+          </NavStyle> 
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/users' component={UserHome} />
