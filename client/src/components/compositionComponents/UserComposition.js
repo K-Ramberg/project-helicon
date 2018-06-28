@@ -62,26 +62,29 @@ class UserComposition extends Component {
     changeComponentState = (event, index) => {
         const newSpace = [...this.state.beatSpaces]
         newSpace[index] = 1
-        const newCompArray = [...this.state.comp]
+        const newCompArray = [...this.state.comp.notePlaces]
         newCompArray.push(newSpace)
         this.setState({
-            comp: newCompArray
+            comp: {
+                notePlaces: newCompArray
+            }
         })
     }
 
     existingNoteStateChange = (event, keyVal, compVal) => {
-        const newCompArray = [...this.state.comp]
+        const newCompArray = [...this.state.comp.notePlaces]
         newCompArray[compVal][keyVal] === 1 ?
             newCompArray[compVal][keyVal] = 0 :
             newCompArray[compVal][keyVal] = 1
         this.setState({
-            comp: newCompArray
+            comp: {
+                notePlaces: newCompArray
+            }
         })
     }
 
     render() {
         const comp = this.state.comp
-        console.log(typeof comp.notePlaces)
         return (
             <div>
                 <h1>USER Compose</h1>
