@@ -7,10 +7,6 @@ const StaffLine = styled.div`
     border-top: 0.39vh solid black;
     background: none;
 `
-// const AboveStaff = styled.div`
-//     background: rgba(40,0,0,0.2);
-//     height: 2vh;
-// `
 const BelowStaff = styled.div`
     background: rgba(0,0,0,0.0);
     height: 4vh;

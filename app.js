@@ -33,7 +33,7 @@ app.get('/', (req,res) => {
 
 app.use('/api/users', usersRouter);
 app.use('/api/users/:userId/muses', museRouter);
-app.use('/ape/users/:userId/muses/:museId/comps')
+app.use('/api/users/:userId/muses/:museId/comps', compRouter)
 
 
 module.exports = app;
