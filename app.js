@@ -15,7 +15,8 @@ connection.on('error', (err) => {
   })
 
 var usersRouter = require('./Routes/users');
-var MuseRouter = require('./Routes/muses');
+var museRouter = require('./Routes/muses');
+let compRouter = require('./Routes/comp')
 
 var app = express();
 
@@ -31,6 +32,8 @@ app.get('/', (req,res) => {
 })
 
 app.use('/api/users', usersRouter);
-app.use('/api/users/:userId/muses', MuseRouter);
+app.use('/api/users/:userId/muses', museRouter);
+app.use('/ape/users/:userId/muses/:museId/comps')
+
 
 module.exports = app;

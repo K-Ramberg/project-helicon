@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router({ mergeParams: true });
-const { UserModel, MuseModel } = require('../db/schema')
+const { UserModel, MuseModel, CompositionModel } = require('../db/schema')
 
 router.get('/:id', async (req, res) => {
   const user = await UserModel.findById(req.params.userId)
