@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import styled from 'styled-components'
 import NotePlaceHolder from './NotePlaceHolder';
 import LineNotePlaceHolder from './LineNotePlaceHolder';
@@ -37,17 +38,30 @@ const NoteSpaceFormer = styled.div`
 class UserComposition extends Component {
 
     state = {
-        comp: [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ],
+        user: {},
+        muse: {},
+        comp: {
+            notePlaces: []
+        },
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+
+    componentDidMount() {
+        const userId = this.props.match.params.userId
+        const museId = this.props.match.params.museId
+        const compId = this.props.match.params.compId
+        axios.get(`/api/users/${userId}/muses/${museId}/comps/${compId}`).then((res) => {
+            this.setState({
+                user: res.data.user,
+                muse: res.data.muse,
+                comp: res.data.comp
+            })
+        })
     }
 
     changeComponentState = (event, index) => {
         const newSpace = [...this.state.beatSpaces]
-        newSpace[index]= 1
+        newSpace[index] = 1
         const newCompArray = [...this.state.comp]
         newCompArray.push(newSpace)
         this.setState({
@@ -58,7 +72,7 @@ class UserComposition extends Component {
     existingNoteStateChange = (event, keyVal, compVal) => {
         const newCompArray = [...this.state.comp]
         newCompArray[compVal][keyVal] === 1 ?
-            newCompArray[compVal][keyVal] = 0:
+            newCompArray[compVal][keyVal] = 0 :
             newCompArray[compVal][keyVal] = 1
         this.setState({
             comp: newCompArray
@@ -66,11 +80,23 @@ class UserComposition extends Component {
     }
 
     render() {
+        const comp = this.state.comp
+        console.log(typeof comp.notePlaces)
         return (
             <div>
                 <h1>USER Compose</h1>
                 <div>
-                    {this.state.comp.map((each, i) => {
+                    {comp.notePlaces.map((notePlace,i) => {
+                        return (
+                            <div key={i}>
+                               "hello"
+                               {notePlace.map((reach,index)=>{
+                                   return("again")
+                               })}
+                            </div>
+                        )
+                    })}
+                    {/* {this.state.comp.map((each, i) => {
                         return (
                             <NoteSpaceFormer key={i}>
                                 {each.map((reach, index) => {
@@ -84,7 +110,7 @@ class UserComposition extends Component {
                                 })}
                             </NoteSpaceFormer>
                         )
-                    })}
+                    })} */}
                     <NoteSpaceFormer>
                         <NotePlaceHolder indexProp={0} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <LineNotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
@@ -99,6 +125,7 @@ class UserComposition extends Component {
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                     </NoteSpaceFormer>
                 </div>
+
             </div>
         );
     }
