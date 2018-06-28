@@ -10,6 +10,7 @@ import MuseCreate from './components/MuseCreate';
 import EditMuse from './components/EditMuse';
 import FreeComposition from './components/compositionComponents/FreeComposition';
 import UserComposition from './components/compositionComponents/UserComposition';
+import NewComposition from './components/compositionComponents/NewComposition';
 
 const NavStyle = styled.div`
   a {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path='/users/:userId/muses/new' component={MuseCreate}/>
             <Route exact path='/users/:userId/muses/:museId' component={MuseShow}/>
             <Route exact path='/users/:userId/muses/:museId/edit' component={EditMuse}/>
+            <Route exact path='/users/:userId/muses/:museId/comps/new' component={NewComposition}/>
             <Route exact path='/users/:userId/muses/:museId/comps/:compId' component={UserComposition}/>
           </Switch>
         </div>

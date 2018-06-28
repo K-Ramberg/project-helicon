@@ -70,6 +70,9 @@ class MuseShow extends Component {
                     })}
                 </div>
                 <p>
+                    <Link to={`/users/${user._id}/muses/${muse._id}/comps/new`}>Compose</Link>
+                </p>
+                <p>
                     <Link to={`/users/${user._id}`}>back to {user.name}'s page</Link>
                 </p>
             </div>
