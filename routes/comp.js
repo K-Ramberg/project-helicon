@@ -25,21 +25,17 @@ router.get('/:id', async (req, res) => {
 //   })
 // })
 
-// router.patch('/:id', async(req, res) => {
-//   const user = await UserModel.findById(req.params.userId)
-//   const editedMuse = user.muses.id(req.params.id)
-//     editedMuse.name = req.body.name
-//     editedMuse.description = req.body.description
-//     editedMuse.keySignature = req.body.keySignature
-//     editedMuse.timeSignature = req.body.timeSignature
-//     editedMuse.tempoBps = req.body.tempoBps
-//     editedMuse.tuningHz = req.body.tuningHz
-
-//     const savedUser = await user.save()
-//     res.send({
-//       user: savedUser
-//     })
-// })
+router.patch('/:id', async(req, res) => {
+  const user = await UserModel.findById(req.params.userId)
+  const muse = await user.muses.id(req.params.museId)
+  const editedComp = muse.compositions.id(req.params.id)
+    editedComp.name = req.body.name
+    editedComp.notePlaces = req.body.notePlaces
+    const savedUser = await user.save()
+    res.send({
+      user: savedUser
+    })
+})
 
 // router.delete('/:id', async (req,res) => {
 //   const user = await UserModel.findById(req.params.userId)

@@ -62,10 +62,12 @@ class UserComposition extends Component {
     changeComponentState = (event, index) => {
         const newSpace = [...this.state.beatSpaces]
         newSpace[index] = 1
+        const compName = this.state.comp.name
         const newCompArray = [...this.state.comp.notePlaces]
         newCompArray.push(newSpace)
         this.setState({
             comp: {
+                name: compName,
                 notePlaces: newCompArray
             }
         })
@@ -73,13 +75,24 @@ class UserComposition extends Component {
 
     existingNoteStateChange = (event, keyVal, compVal) => {
         const newCompArray = [...this.state.comp.notePlaces]
+        const compName = this.state.comp.name
         newCompArray[compVal][keyVal] === 1 ?
             newCompArray[compVal][keyVal] = 0 :
             newCompArray[compVal][keyVal] = 1
         this.setState({
             comp: {
+                name: compName,
                 notePlaces: newCompArray
             }
+        })
+    }
+
+    submitNotesChange = (event) => {
+        const userId = this.props.match.params.userId
+        const museId = this.props.match.params.museId
+        const compId = this.props.match.params.compId
+        axios.patch(`/api/users/${userId}/muses/${museId}/comps/${compId}`, this.state.comp).then((res) => {
+            console.log(res.data)
         })
     }
 
@@ -87,7 +100,7 @@ class UserComposition extends Component {
         const comp = this.state.comp
         return (
             <div>
-                <h1>USER Compose</h1>
+                <h1>{this.state.user.name}'s {comp.name}</h1>
                 <div>
                     {comp.notePlaces.map((each, i) => {
                         return (
@@ -118,6 +131,9 @@ class UserComposition extends Component {
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                     </NoteSpaceFormer>
                 </div>
+                    <div>
+                        <button onClick={this.submitNotesChange}>Commit Change</button>
+                    </div>
             </div>
         );
     }
