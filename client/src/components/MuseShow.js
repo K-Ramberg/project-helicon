@@ -26,7 +26,10 @@ class MuseShow extends Component {
         const userId = this.props.match.params.userId
         const museId = this.props.match.params.museId
         axios.delete(`/api/users/${userId}/muses/${museId}/comps/${compId}`).then((res) => {
-            console.log(res)
+            this.setState({
+                user: res.data.user,
+                muse: res.data.muse
+            })
         })
     }
 

@@ -41,11 +41,11 @@ router.delete('/:id', async (req,res) => {
   const user = await UserModel.findById(req.params.userId)
   const muse = await user.muses.id(req.params.museId)
   muse.compositions.id(req.params.id).remove()
-  const savedUser = await user.save(
-    res.send(
-      "goodbye"
-    )
-  )
+  const savedUser = await user.save()
+    res.send({
+        user: savedUser,
+        muse
+    })
 })
 
 module.exports = router;
