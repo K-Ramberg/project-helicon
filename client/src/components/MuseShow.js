@@ -19,7 +19,14 @@ class MuseShow extends Component {
                 user: res.data.user,
                 muse: res.data.muse
             })
-            console.log(res.data)
+        })
+    }
+
+    deleteComposition = (compId) => {
+        const userId = this.props.match.params.userId
+        const museId = this.props.match.params.museId
+        axios.delete(`/api/users/${userId}/muses/${museId}/comps/${compId}`).then((res) => {
+            console.log(res)
         })
     }
 
@@ -50,10 +57,11 @@ class MuseShow extends Component {
                 </div>
                 <div>
                     <h4>Composition Ideas for {muse.name}</h4>
-                    {compositions.map((each) => {
+                    {compositions.map((comp) => {
                         return (
-                            <div key={each._id}>
-                                <Link to={`/users/${user._id}/muses/${muse._id}/comps/${each._id}`}>{each.name}</Link>
+                            <div key={comp._id}>
+                                <Link to={`/users/${user._id}/muses/${muse._id}/comps/${comp._id}`}>{comp.name}</Link>
+                                <button onClick={() => this.deleteComposition(comp._id)}>remove this compostion</button>
                             </div>
                         )
                     })}

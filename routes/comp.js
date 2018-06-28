@@ -37,14 +37,15 @@ router.patch('/:id', async(req, res) => {
     })
 })
 
-// router.delete('/:id', async (req,res) => {
-//   const user = await UserModel.findById(req.params.userId)
-//   user.muses.id(req.params.id).remove()
-//   const savedUser = await user.save(
-//     res.send(
-//       "goodbye"
-//     )
-//   )
-// })
+router.delete('/:id', async (req,res) => {
+  const user = await UserModel.findById(req.params.userId)
+  const muse = await user.muses.id(req.params.museId)
+  muse.compositions.id(req.params.id).remove()
+  const savedUser = await user.save(
+    res.send(
+      "goodbye"
+    )
+  )
+})
 
 module.exports = router;

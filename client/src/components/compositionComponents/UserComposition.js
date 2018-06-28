@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 import NotePlaceHolder from './NotePlaceHolder';
 import LineNotePlaceHolder from './LineNotePlaceHolder';
 
@@ -46,7 +47,7 @@ class UserComposition extends Component {
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
 
-    componentDidMount() {
+    cancelChange = () => {
         const userId = this.props.match.params.userId
         const museId = this.props.match.params.museId
         const compId = this.props.match.params.compId
@@ -57,6 +58,10 @@ class UserComposition extends Component {
                 comp: res.data.comp
             })
         })
+    }
+
+    componentDidMount() {
+        this.cancelChange()
     }
 
     changeComponentState = (event, index) => {
@@ -98,9 +103,17 @@ class UserComposition extends Component {
 
     render() {
         const comp = this.state.comp
+        const user = this.state.user
+        const muse = this.state.muse
         return (
             <div>
                 <h1>{this.state.user.name}'s {comp.name}</h1>
+                <div>
+                    <button onClick={this.submitNotesChange}>Commit Change</button>
+                </div>
+                <div>
+                    <button onClick={this.cancelChange}>Cancel</button>
+                </div>
                 <div>
                     {comp.notePlaces.map((each, i) => {
                         return (
@@ -110,7 +123,7 @@ class UserComposition extends Component {
                                     const compVal = i
                                     return (
                                         <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                            {index%2 === 0? <BelowStaff>{reach === 1? <NotePlace></NotePlace>:null}</BelowStaff>: <StaffLine>{reach === 1? <LineNotePlace></LineNotePlace>:null}</StaffLine>}
+                                            {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <NotePlace></NotePlace> : null}</BelowStaff> : <StaffLine>{reach === 1 ? <LineNotePlace></LineNotePlace> : null}</StaffLine>}
                                         </div>
                                     )
                                 })}
@@ -131,9 +144,9 @@ class UserComposition extends Component {
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                     </NoteSpaceFormer>
                 </div>
-                    <div>
-                        <button onClick={this.submitNotesChange}>Commit Change</button>
-                    </div>
+                <div>
+                    <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
+                </div>
             </div>
         );
     }
