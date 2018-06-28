@@ -41,9 +41,7 @@ class UserComposition extends Component {
         user: {},
         muse: {},
         comp: {
-            notePlaces: [
-                [],[]
-            ]
+            notePlaces: []
         },
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
@@ -88,17 +86,7 @@ class UserComposition extends Component {
             <div>
                 <h1>USER Compose</h1>
                 <div>
-                    {comp.notePlaces.map((notePlace, i) => {
-                        return (
-                            <div key={i}>
-                                "hello"
-                               {/* {notePlace.map((reach, index) => {
-                                    return ("again")
-                                })} */}
-                            </div>
-                        )
-                    })}
-                    {/* {this.state.comp.map((each, i) => {
+                    {comp.notePlaces.map((each, i) => {
                         return (
                             <NoteSpaceFormer key={i}>
                                 {each.map((reach, index) => {
@@ -112,7 +100,7 @@ class UserComposition extends Component {
                                 })}
                             </NoteSpaceFormer>
                         )
-                    })} */}
+                    })}
                     <NoteSpaceFormer>
                         <NotePlaceHolder indexProp={0} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <LineNotePlaceHolder indexProp={1} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
