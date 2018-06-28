@@ -8,7 +8,7 @@ import EditUser from './components/EditUser';
 import MuseShow from './components/MuseShow';
 import MuseCreate from './components/MuseCreate';
 import EditMuse from './components/EditMuse';
-import Composition from './components/compositionComponents/Composition';
+import FreeComposition from './components/compositionComponents/FreeComposition';
 
 const NavStyle = styled.div`
   a {
@@ -25,12 +25,12 @@ class App extends Component {
           <NavStyle>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
-            <Link to='/users/compostion'>Free Compose</Link>
+            <Link to='/users/freeCompostion'>Free Compose</Link>
           </NavStyle> 
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/users' component={UserHome} />
-            <Route exact path='/users/compostion' component={Composition}/>
+            <Route exact path='/users/freeCompostion' component={FreeComposition}/>
             <Route exact path='/users/:userId' component={UserShow}/>
             <Route exact path='/users/:userId/edit' component={EditUser}/>
             <Route exact path='/users/:userId/muses/new' component={MuseCreate}/>
