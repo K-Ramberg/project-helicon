@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
+import { WSAEINVALIDPROVIDER } from 'constants';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -39,7 +40,7 @@ const QuarterFlagStaff = styled.div`
     margin-top: -8vh;   
     margin-left: -4px;
     float: left;
-    z-index: -1;
+    z-index: -2;
     margin-right: 40px;
 `
 
@@ -51,6 +52,89 @@ const LineQuarterFlagStaff = styled.div`
     float: left;
     z-index: 3;
     margin-right: 40px;
+`
+const HalfNotePlace = styled.div`
+    border: 2px solid black;
+    background: white;
+    border-radius: 100% 70% 100% 70%;
+    width: 20px;
+    height: 3.7vh;
+    float:left;
+    z-index: -2;
+`
+
+const LineHalfNotePlace = styled.div`
+    border: 2px solid black;
+    background: white;
+    border-radius: 100% 70% 100% 70%;
+    width: 20px;
+    height: 3.7vh;
+    float:left;
+    z-index: -2;
+`
+const HalfFlagStaff = styled.div`
+    border-right: 3px solid black;
+    height: 10vh; 
+    margin-top: -8vh;   
+    margin-left: -4px;
+    float: left;
+    z-index: -2;
+    margin-right: 80px;
+`
+
+const LineHalfFlagStaff = styled.div`
+    border-right: 3px solid black;
+    height: 10vh; 
+    margin-top: -10vh;   
+    margin-left: -7px;
+    float: left;
+    z-index: 3;
+    margin-right: 80px;
+`
+
+const EigthNotePlace = styled.div`
+    border: 2px solid black;
+    background: black;
+    border-radius: 100% 70% 100% 70%;
+    width: 20px;
+    height: 3.7vh;
+    float:left;
+    z-index: -2;
+`
+
+const LineEigthNotePlace = styled.div`
+    border: 2px solid black;
+    background: black;
+    border-radius: 100% 70% 100% 70%;
+    width: 20px;
+    height: 3.7vh;
+    float:left;
+    z-index: -2;
+`
+const EigthFlagStaff = styled.div`
+    border-right: 3px solid rgba(0,0,0,0);
+    border-top: 4px solid black;
+    border-width: 20px 20px 20px 20px;
+    border-left: 3px solid black;
+    height: 10vh; 
+    margin-top: -8vh;   
+    margin-left: -4px;
+    float: left;
+    z-index: -2;
+    margin-right: 7px;
+`
+
+const LineEigthFlagStaff = styled.div`
+     border-right: 3px solid rgba(0,0,0,0);
+    border-top: 4px solid black;
+    border-width: 20px 20px 20px 20px;
+    border-left: 3px solid black;
+    height: 10vh; 
+    margin-top: -10vh;   
+    margin-left: -7px;
+    float: left;
+    z-index: 3;
+    margin-right: 7px;
 `
 
 const NoteSpaceFormer = styled.div`
@@ -96,22 +180,22 @@ class FreeComposition extends Component {
 
     existingNoteStateChange = (event, keyVal, compVal) => {
         const newCompArray = [...this.state.comp]
-        if (keyVal === 1) {
+        if (this.state.noteValue === 1) {
             newCompArray[compVal][keyVal] === 1 ?
                 newCompArray[compVal][keyVal] = 0 :
                 newCompArray[compVal][keyVal] = 1
         }
-        else if (keyVal === 2) {
+        else if (this.state.noteValue === 2) {
             newCompArray[compVal][keyVal] === 2 ?
                 newCompArray[compVal][keyVal] = 0 :
                 newCompArray[compVal][keyVal] = 2
         }
-        else if (keyVal === 3) {
+        else if (this.state.noteValue === 3) {
             newCompArray[compVal][keyVal] === 3 ?
                 newCompArray[compVal][keyVal] = 0 :
                 newCompArray[compVal][keyVal] = 3
         }
-        else if (keyVal === 4) {
+        else if (this.state.noteValue === 4) {
             newCompArray[compVal][keyVal] === 4 ?
                 newCompArray[compVal][keyVal] = 0 :
                 newCompArray[compVal][keyVal] = 4
@@ -161,7 +245,9 @@ class FreeComposition extends Component {
                                     const compVal = i
                                     return (
                                         <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                            {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div> : null}</BelowStaff> : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> : null}</StaffLine>}
+                                            {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
+                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div> : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>: null}</BelowStaff>
+                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> : null}</StaffLine>}
                                         </div>
                                     )
                                 })}
