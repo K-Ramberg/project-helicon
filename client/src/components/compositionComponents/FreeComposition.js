@@ -75,7 +75,18 @@ class FreeComposition extends Component {
 
     changeComponentState = (event, index) => {
         const newSpace = [...this.state.beatSpaces]
-        newSpace[index] = 1
+        if (this.state.noteValue === 1) {
+            newSpace[index] = 1
+        }
+        else if (this.state.noteValue === 2) {
+            newSpace[index] = 2
+        }
+        else if (this.state.noteValue === 3) {
+            newSpace[index] = 3
+        }
+        else if (this.state.noteValue === 4) {
+            newSpace[index] = 4
+        }
         const newCompArray = [...this.state.comp]
         newCompArray.push(newSpace)
         this.setState({
@@ -85,35 +96,52 @@ class FreeComposition extends Component {
 
     existingNoteStateChange = (event, keyVal, compVal) => {
         const newCompArray = [...this.state.comp]
-        newCompArray[compVal][keyVal] === 1 ?
-            newCompArray[compVal][keyVal] = 0 :
-            newCompArray[compVal][keyVal] = 1
+        if (keyVal === 1) {
+            newCompArray[compVal][keyVal] === 1 ?
+                newCompArray[compVal][keyVal] = 0 :
+                newCompArray[compVal][keyVal] = 1
+        }
+        else if (keyVal === 2) {
+            newCompArray[compVal][keyVal] === 2 ?
+                newCompArray[compVal][keyVal] = 0 :
+                newCompArray[compVal][keyVal] = 2
+        }
+        else if (keyVal === 3) {
+            newCompArray[compVal][keyVal] === 3 ?
+                newCompArray[compVal][keyVal] = 0 :
+                newCompArray[compVal][keyVal] = 3
+        }
+        else if (keyVal === 4) {
+            newCompArray[compVal][keyVal] === 4 ?
+                newCompArray[compVal][keyVal] = 0 :
+                newCompArray[compVal][keyVal] = 4
+        }
         this.setState({
             comp: newCompArray
         })
     }
 
     noteValueChange = (event) => {
-        switch(this.state.noteValue){
+        switch (this.state.noteValue) {
             case 1:
-            this.setState({
-                noteValue: 2
-            }) 
-            break;
+                this.setState({
+                    noteValue: 2
+                })
+                break;
             case 2:
-            this.setState({
-                noteValue: 3
-            })
-            break;
+                this.setState({
+                    noteValue: 3
+                })
+                break;
             case 3:
-            this.setState({
-                noteValue: 4
-            })
-            break;
+                this.setState({
+                    noteValue: 4
+                })
+                break;
             case 4:
-            this.setState({
-                noteValue: 1
-            })
+                this.setState({
+                    noteValue: 1
+                })
         }
     }
 
