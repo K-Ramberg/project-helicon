@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
+import NoteValueSelector from './noteSetUp/NoteValueSelector';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -68,7 +69,8 @@ class FreeComposition extends Component {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ],
-        beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        noteValue: 1
     }
 
     changeComponentState = (event, index) => {
@@ -89,6 +91,30 @@ class FreeComposition extends Component {
         this.setState({
             comp: newCompArray
         })
+    }
+
+    noteValueChange = (event) => {
+        switch(this.state.noteValue){
+            case 1:
+            this.setState({
+                noteValue: 2
+            }) 
+            break;
+            case 2:
+            this.setState({
+                noteValue: 3
+            })
+            break;
+            case 3:
+            this.setState({
+                noteValue: 4
+            })
+            break;
+            case 4:
+            this.setState({
+                noteValue: 1
+            })
+        }
     }
 
     render() {
@@ -126,6 +152,7 @@ class FreeComposition extends Component {
                         <NotePlaceHolder indexProp={8} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <LineNotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
+                        <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
                     </NoteSpaceFormer>
                 </div>
             </div>
