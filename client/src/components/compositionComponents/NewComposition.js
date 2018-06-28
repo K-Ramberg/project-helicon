@@ -42,26 +42,30 @@ class NewComposition extends Component {
         user: {},
         muse: {},
         comp: {
+            name: '',
             notePlaces: []
         },
         beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
 
     cancelChange = () => {
-        const userId = this.props.match.params.userId
-        const museId = this.props.match.params.museId
-        const compId = this.props.match.params.compId
-        axios.get(`/api/users/${userId}/muses/${museId}/comps/${compId}`).then((res) => {
-            this.setState({
-                user: res.data.user,
-                muse: res.data.muse,
-                comp: res.data.comp
-            })
+        this.setState({
+            comp:{
+                name: '',
+                notePlaces: []
+            }
         })
     }
 
     componentDidMount() {
-        this.cancelChange()
+        const userId = this.props.match.params.userId
+        const museId = this.props.match.params.museId
+        axios.get(`/api/users/${userId}/muses/${museId}`).then((res) => {
+            this.setState({
+                user: res.data.user,
+                muse: res.data.muse
+            })
+        })
     }
 
     changeComponentState = (event, index) => {
@@ -92,12 +96,19 @@ class NewComposition extends Component {
         })
     }
 
-    submitNotesChange = (event) => {
+    handleNameChange = (event) => {
+        const keyNameValueOfInput = event.target.name
+        const userInput = event.target.value
+        const cloneState = { ...this.state }
+        cloneState.comp.name = userInput
+        this.setState(cloneState) 
+    }
+
+    submitNewComp = (event) => {
         const userId = this.props.match.params.userId
         const museId = this.props.match.params.museId
-        const compId = this.props.match.params.compId
-        axios.patch(`/api/users/${userId}/muses/${museId}/comps/${compId}`, this.state.comp).then((res) => {
-            console.log(res.data)
+        axios.post(`/api/users/${userId}/muses/${museId}/comps/`, this.state.comp).then((res) => {
+            this.props.history.push(`/users/${userId}/muses/${museId}`)
         })
     }
 
@@ -107,9 +118,10 @@ class NewComposition extends Component {
         const muse = this.state.muse
         return (
             <div>
-                <h1>{this.state.user.name}'s {comp.name}</h1>
+                <h1>{this.state.user.name}'s new Compostion</h1>
                 <div>
-                    <button onClick={this.submitNotesChange}>Commit Change</button>
+                    <input type="text" name="name" value={comp.name} placeholder="name" onChange={this.handleNameChange}/>
+                    <button onClick={this.submitNewComp}>Add Compostion</button>
                 </div>
                 <div>
                     <button onClick={this.cancelChange}>Cancel</button>

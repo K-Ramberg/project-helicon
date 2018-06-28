@@ -13,17 +13,18 @@ router.get('/:id', async (req, res) => {
   })
 })
 
-// router.post('/', (req, res) => {
-//   UserModel.findById(req.params.userId).then((user) => {
-//     const newMuse = new MuseModel(req.body)
-//     user.muses.push(newMuse)
-//     return user.save()
-//   }).then(savedUser => {
-//     res.send({
-//       user: savedUser
-//     })
-//   })
-// })
+router.post('/', (req, res) => {
+  UserModel.findById(req.params.userId).then((user) => {
+    const muse = user.muses.id(req.params.museId)
+    const newComp = new CompositionModel(req.body)
+    muse.compositions.push(newComp)
+    return user.save()
+  }).then(savedUser => {
+    res.send({
+      user: savedUser
+    })
+  })
+})
 
 router.patch('/:id', async(req, res) => {
   const user = await UserModel.findById(req.params.userId)
