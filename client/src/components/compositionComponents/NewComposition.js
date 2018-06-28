@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import NotePlaceHolder from './NotePlaceHolder';
-import LineNotePlaceHolder from './LineNotePlaceHolder';
+import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
+import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;

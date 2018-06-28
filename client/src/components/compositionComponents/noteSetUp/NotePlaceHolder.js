@@ -5,6 +5,7 @@ const NoteHolder = styled.div`
     height: 3.6vh;
     width: 30px;
     background: rgba(0,0,0,0.0);
+    border-right: 4px solid black;
 `
 
 class NotePlaceHolder extends Component {

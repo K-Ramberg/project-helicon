@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import NotePlaceHolder from './NotePlaceHolder';
-import LineNotePlaceHolder from './LineNotePlaceHolder';
+import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
+import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -18,6 +18,7 @@ const NotePlace = styled.div`
     width: 20px;
     height: 3.7vh;
     float:left;
+    z-index: -2;
 `
 const LineNotePlace = styled.div`
     border: 1px solid black;
@@ -29,9 +30,34 @@ const LineNotePlace = styled.div`
     margin-top: -1.9vh;
     margin-left: 1vw;
     margin-right: 1vw;
+    z-index: 3;
 `
+const QuarterFlagStaff = styled.div`
+    border-right: 3px solid black;
+    height: 10vh; 
+    margin-top: -8vh;   
+    margin-left: -4px;
+    float: left;
+    z-index: -1;
+    margin-right: 40px;
+`
+
+const LineQuarterFlagStaff = styled.div`
+    border-right: 3px solid black;
+    height: 10vh; 
+    margin-top: -10vh;   
+    margin-left: -7px;
+    float: left;
+    z-index: 3;
+    margin-right: 40px;
+`
+
 const NoteSpaceFormer = styled.div`
     float: left;
+`
+const PreDiv = styled.div`
+    min-width: 3vw;
+    background: rgba(3,3,3,0.1);
 `
 
 class FreeComposition extends Component {
@@ -47,7 +73,7 @@ class FreeComposition extends Component {
 
     changeComponentState = (event, index) => {
         const newSpace = [...this.state.beatSpaces]
-        newSpace[index]= 1
+        newSpace[index] = 1
         const newCompArray = [...this.state.comp]
         newCompArray.push(newSpace)
         this.setState({
@@ -58,7 +84,7 @@ class FreeComposition extends Component {
     existingNoteStateChange = (event, keyVal, compVal) => {
         const newCompArray = [...this.state.comp]
         newCompArray[compVal][keyVal] === 1 ?
-            newCompArray[compVal][keyVal] = 0:
+            newCompArray[compVal][keyVal] = 0 :
             newCompArray[compVal][keyVal] = 1
         this.setState({
             comp: newCompArray
@@ -69,6 +95,9 @@ class FreeComposition extends Component {
         return (
             <div>
                 <h1>Free Compose</h1>
+                <NoteSpaceFormer>{this.state.beatSpaces.map((each, i) => {
+                    return (<PreDiv key={i}>{i % 2 === 0 ? <BelowStaff></BelowStaff> : <StaffLine></StaffLine>}</PreDiv>)
+                })}</NoteSpaceFormer>
                 <div>
                     {this.state.comp.map((each, i) => {
                         return (
@@ -78,7 +107,7 @@ class FreeComposition extends Component {
                                     const compVal = i
                                     return (
                                         <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                            {index%2 === 0? <BelowStaff>{reach === 1? <NotePlace></NotePlace>:null}</BelowStaff>: <StaffLine>{reach === 1? <LineNotePlace></LineNotePlace>:null}</StaffLine>}
+                                            {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div> : null}</BelowStaff> : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> : null}</StaffLine>}
                                         </div>
                                     )
                                 })}
