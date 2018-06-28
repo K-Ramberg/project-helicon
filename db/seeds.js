@@ -1,43 +1,42 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI)
-const { MuseModel, UserModel, CompositionModel, NotePLacementModel } = require('./schema')
-
-const testNotePlace1 = new NotePLacementModel({
-    notePlacement: [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0]
-})
-const testNotePlace2 = new NotePLacementModel({
-    notePlacement: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
-})
-const testNotePlace3 = new NotePLacementModel({
-    notePlacement: [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
-})
+const { MuseModel, UserModel, CompositionModel } = require('./schema')
 
 const testComp1 = new CompositionModel({
     name: "Comp1",
-    notePlaces: [testNotePlace1, testNotePlace2, testNotePlace3]
-})
-
-const testNotePlace4 = new NotePLacementModel({
-    notePlacement: [0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0]
-})
-const testNotePlace5 = new NotePLacementModel({
-    notePlacement: [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+    notePlaces: [
+        [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+    ]
 })
 
 const testComp2 = new CompositionModel({
     name: "Comp2",
-    notePlaces: [testNotePlace4, testNotePlace5, testNotePlace1]
+    notePlaces: [
+        [0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+    ]
 })
 
 const testComp3 = new CompositionModel({
     name: "My New Comp",
-    notePlaces: [testNotePlace2, testNotePlace1, testNotePlace4]
+    notePlaces: [
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0]
+    ]
 })
 
 const testComp4 = new CompositionModel({
     name: "Another New Comp",
-    notePlaces: [testNotePlace1, testNotePlace1, testNotePlace5]
+    notePlaces: [
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0],
+        [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    ]
 })
 
 const testMuse1 = new MuseModel({
