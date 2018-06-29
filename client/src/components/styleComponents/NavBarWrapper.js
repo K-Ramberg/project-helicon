@@ -3,13 +3,17 @@ import styled from 'styled-components'
 
 
 const NavBarWrapper = styled.div`
+     position: fixed;
+     top: 0;
   a {
-    margin: 6vw;
+    margin: 0 6vw;
     color: rgba(30,16,7,9.0);
     font-size: 5vw;
     line-height: 6.5vh;
     text-decoration: none;
     /* font-family: 'Homemade Apple', cursive; */
+    /* font-family: 'Kalam', cursive;
+    font-family: 'Handlee', cursive; */
     font-family: 'Parisienne', cursive;
   }
   width: 100%;

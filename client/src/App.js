@@ -17,14 +17,16 @@ import NavBarWrapper from './components/styleComponents/NavBarWrapper';
 
 const MainDiv = styled.div`
   max-width: 100%;
-  min-height: 99vh;
+  min-height: 100vh;
   background-size: cover;
   background-image: url(${MountainLake});
   @media(max-width: 730px){
     background-image: url(${MountainLakeSmall})
   }
 `
-
+const PageAlign = styled.div`
+  height: 8vh;
+`
 class App extends Component {
 
   render() {
@@ -36,6 +38,7 @@ class App extends Component {
             <Link to='/users'>Users</Link>
             <Link to='/users/freeCompostion'>Free Compose</Link>
           </NavBarWrapper>
+          <PageAlign></PageAlign>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/users' component={UserHome} />
