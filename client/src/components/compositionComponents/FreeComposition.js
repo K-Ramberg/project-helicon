@@ -95,6 +95,7 @@ const LineHalfNotePlace = styled.div`
     width: 20px;
     height: 3.7vh;
     float:left;
+    margin-top: -1.9vh;
     z-index: -2;
 `
 const HalfFlagStaff = styled.div`
@@ -134,6 +135,7 @@ const LineEigthNotePlace = styled.div`
     width: 20px;
     height: 3.7vh;
     float:left;
+    margin-top: -1.9vh;
     z-index: -2;
 `
 const EigthFlagStaff = styled.div`
