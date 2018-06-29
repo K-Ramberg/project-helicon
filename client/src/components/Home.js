@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import SiteOpen from './styleComponents/SiteOpen';
 
 class Home extends Component {
     render() {
         return (
-            <div>
+            <SiteOpen>
                 This is the home page
-            </div>
+            </SiteOpen>
         );
     }
 }

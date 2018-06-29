@@ -11,46 +11,42 @@ import EditMuse from './components/EditMuse';
 import FreeComposition from './components/compositionComponents/FreeComposition';
 import UserComposition from './components/compositionComponents/UserComposition';
 import NewComposition from './components/compositionComponents/NewComposition';
+import MountainLake from './pictures/paul-gilmore-387697-unsplash.jpg'
+import MountainLakeSmall from './pictures/pietro-de-grandi-329904-unsplash.jpg'
+import NavBarWrapper from './components/styleComponents/NavBarWrapper';
 
-const NavStyle = styled.div`
-  a {
-    margin: 7vw;
-    color: rgba(64,16,7,9.0);
-    font-size: 3vh;
-    line-height: 6.5vh;
-    text-decoration: none;
-  }
-  width: 100%;
-  height: 8vh;
-  background-color: #ddc18d;
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-`
 const MainDiv = styled.div`
   max-width: 100%;
+  min-height: 99vh;
+  background-size: cover;
+  background-image: url(${MountainLake});
+  @media(max-width: 730px){
+    background-image: url(${MountainLakeSmall})
+  }
 `
 
 class App extends Component {
-  
+
   render() {
     return (
       <Router>
         <MainDiv>
-          <NavStyle>
+          <NavBarWrapper>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
             <Link to='/users/freeCompostion'>Free Compose</Link>
-          </NavStyle> 
+          </NavBarWrapper>
           <Switch>
-            <Route exact path='/' component={Home}/>
+            <Route exact path='/' component={Home} />
             <Route exact path='/users' component={UserHome} />
-            <Route exact path='/users/freeCompostion' component={FreeComposition}/>
-            <Route exact path='/users/:userId' component={UserShow}/>
-            <Route exact path='/users/:userId/edit' component={EditUser}/>
-            <Route exact path='/users/:userId/muses/new' component={MuseCreate}/>
-            <Route exact path='/users/:userId/muses/:museId' component={MuseShow}/>
-            <Route exact path='/users/:userId/muses/:museId/edit' component={EditMuse}/>
-            <Route exact path='/users/:userId/muses/:museId/comps/new' component={NewComposition}/>
-            <Route exact path='/users/:userId/muses/:museId/comps/:compId' component={UserComposition}/>
+            <Route exact path='/users/freeCompostion' component={FreeComposition} />
+            <Route exact path='/users/:userId' component={UserShow} />
+            <Route exact path='/users/:userId/edit' component={EditUser} />
+            <Route exact path='/users/:userId/muses/new' component={MuseCreate} />
+            <Route exact path='/users/:userId/muses/:museId' component={MuseShow} />
+            <Route exact path='/users/:userId/muses/:museId/edit' component={EditMuse} />
+            <Route exact path='/users/:userId/muses/:museId/comps/new' component={NewComposition} />
+            <Route exact path='/users/:userId/muses/:museId/comps/:compId' component={UserComposition} />
           </Switch>
         </MainDiv>
       </Router>
