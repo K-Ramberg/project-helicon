@@ -34,6 +34,31 @@ const LineNotePlace = styled.div`
     margin-right: 1vw;
     z-index: 3;
 `
+
+const WholeNotePlace = styled.div`
+    border: 5px solid black;
+    background: none;
+    border-radius: 100% 100% 100% 100%;
+    width: 35px;
+    height: 3vh;
+    float:left;
+    z-index: 4;
+    margin-right: 160px;
+`
+const LineWholeNotePlace = styled.div`
+    border: 5px solid black;
+    background: none;
+    border-radius: 100% 100% 100% 100%;
+    width: 35px;
+    height: 3vh;
+    float: left;
+    margin-top: -2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    z-index: 1;
+    margin-right: 160px;
+`
+
 const QuarterFlagStaff = styled.div`
     border-right: 3px solid black;
     height: 10vh; 
@@ -114,27 +139,27 @@ const LineEigthNotePlace = styled.div`
 const EigthFlagStaff = styled.div`
     border-right: 3px solid rgba(0,0,0,0);
     border-top: 4px solid black;
-    border-width: 20px 20px 20px 20px;
+    border-width: 20px;
     border-left: 3px solid black;
-    height: 10vh; 
+    height: 8vh; 
     margin-top: -8vh;   
     margin-left: -4px;
     float: left;
     z-index: -2;
-    margin-right: 7px;
+    margin-right: 5px;
 `
 
 const LineEigthFlagStaff = styled.div`
      border-right: 3px solid rgba(0,0,0,0);
     border-top: 4px solid black;
-    border-width: 20px 20px 20px 20px;
+    border-width: 20px;
     border-left: 3px solid black;
-    height: 10vh; 
+    height: 8vh; 
     margin-top: -10vh;   
     margin-left: -7px;
     float: left;
     z-index: 3;
-    margin-right: 7px;
+    margin-right: 5px;
 `
 
 const NoteSpaceFormer = styled.div`
@@ -246,8 +271,13 @@ class FreeComposition extends Component {
                                     return (
                                         <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
                                             {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
-                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div> : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>: null}</BelowStaff>
-                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> : null}</StaffLine>}
+                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div> 
+                                                : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
+                                                : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
+                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> 
+                                                : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div> 
+                                                : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
+                                                : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div>: null}</StaffLine>}
                                         </div>
                                     )
                                 })}
