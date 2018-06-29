@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
-import { WSAEINVALIDPROVIDER } from 'constants';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
