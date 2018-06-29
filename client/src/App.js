@@ -14,8 +14,19 @@ import NewComposition from './components/compositionComponents/NewComposition';
 
 const NavStyle = styled.div`
   a {
-    margin: 0 20px;
+    margin: 7vw;
+    color: rgba(64,16,7,9.0);
+    font-size: 3vh;
+    line-height: 6.5vh;
+    text-decoration: none;
   }
+  width: 100%;
+  height: 8vh;
+  background-color: #ddc18d;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+`
+const MainDiv = styled.div`
+  max-width: 100%;
 `
 
 class App extends Component {
@@ -23,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <MainDiv>
           <NavStyle>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
@@ -41,7 +52,7 @@ class App extends Component {
             <Route exact path='/users/:userId/muses/:museId/comps/new' component={NewComposition}/>
             <Route exact path='/users/:userId/muses/:museId/comps/:compId' component={UserComposition}/>
           </Switch>
-        </div>
+        </MainDiv>
       </Router>
     );
   }
