@@ -166,6 +166,7 @@ const LineEigthFlagStaff = styled.div`
 
 const NoteSpaceFormer = styled.div`
     float: left;
+    margin-top: 10vh;
 `
 const PreDiv = styled.div`
     min-width: 3vw;
@@ -256,10 +257,24 @@ class FreeComposition extends Component {
         }
     }
 
+    clearStaff = () => {
+        this.setState({
+            comp: [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            beatSpaces: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        })
+    }
+
     render() {
         return (
             <div>
                 <h1>Free Compose</h1>
+                <div>
+                    <button onClick={this.clearStaff}>Clear</button>
+                </div>
                 <NoteSpaceFormer>{this.state.beatSpaces.map((each, i) => {
                     return (<PreDiv key={i}>{i % 2 === 0 ? <BelowStaff></BelowStaff> : <StaffLine></StaffLine>}</PreDiv>)
                 })}</NoteSpaceFormer>

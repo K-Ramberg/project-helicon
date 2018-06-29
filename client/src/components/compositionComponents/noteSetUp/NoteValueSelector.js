@@ -6,9 +6,10 @@ class NoteValueSelector extends Component {
         this.props.noteValueChange()
     }
     render() {
+        const noteValue = this.props.noteValue
         return (
             <div>
-                <button onClick={this.handleNoteValueChange}>note: {this.props.noteValue}</button>
+                <button onClick={this.handleNoteValueChange}>note: {noteValue === 1 ? "Quarter" : noteValue === 2 ? "Half" : noteValue === 3 ? "Eigth" : "Whole"}</button>
             </div>
         );
     }
