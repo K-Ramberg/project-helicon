@@ -15,12 +15,21 @@ const NavBarWrapper = styled.div`
     /* font-family: 'Kalam', cursive;
     font-family: 'Handlee', cursive; */
     font-family: 'Parisienne', cursive;
+    background-color: rgba(30,16,7,0.1);
+    border-radius: 40%;
+    :hover{
+      background-color: rgba(30,16,7,0.3);
+  }
   }
   width: 100%;
   height: 8vh;
-  background-color: #a6884c;
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
- 
+  background: linear-gradient(to right, rgba(200,200,200,0.4), rgba(255,255,255, 0.4));
+  /* background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"); */
+  border-radius: 0 0 5% 5%;
+  :hover{
+    background: linear-gradient(to right, rgba(200,200,200,0.7), rgba(255,255,255, 0.7));
+  }
+  
  @media(max-width: 500px){
      a {
          font-size: 1.5em;

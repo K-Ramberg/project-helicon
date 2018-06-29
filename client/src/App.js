@@ -26,6 +26,7 @@ const MainDiv = styled.div`
 `
 const PageAlign = styled.div`
   height: 8vh;
+  background-color: rgba(0,0,0,0.4);
 `
 class App extends Component {
 
