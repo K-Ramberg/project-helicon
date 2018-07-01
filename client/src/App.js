@@ -14,6 +14,7 @@ import NewComposition from './components/compositionComponents/NewComposition';
 import MountainLake from './pictures/paul-gilmore-387697-unsplash.jpg'
 import MountainLakeSmall from './pictures/pietro-de-grandi-329904-unsplash.jpg'
 import NavBarWrapper from './components/styleComponents/NavBarWrapper';
+import NewUser from './components/NewUser';
 
 const MainDiv = styled.div`
   max-width: 100%;
@@ -42,6 +43,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/users' component={UserHome} />
+            <Route exact path='/users/new' component={NewUser}/>
             <Route exact path='/users/freeCompostion' component={FreeComposition} />
             <Route exact path='/users/:userId' component={UserShow} />
             <Route exact path='/users/:userId/edit' component={EditUser} />

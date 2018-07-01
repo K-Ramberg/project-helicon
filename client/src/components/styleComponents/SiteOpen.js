@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
 import styled from 'styled-components'
-
 
 const SiteOpen = styled.div`
   font-family: 'Kalam', cursive;
@@ -31,6 +29,18 @@ const SiteOpen = styled.div`
       font-size: 2vh;
       text-align: center;
       margin: 4vh auto; 
+  }
+  a {
+    margin: 0 6vw;
+    color: rgba(230,216,207,9.0);
+    font-size: 5vw;
+    line-height: 6.5vh;
+    text-decoration: none;
+    font-family: 'Kalam', cursive;
+    background-color: rgba(30,16,7,0.1);
+    border-radius: 40%;
+    :hover{
+      background-color: rgba(30,16,7,0.3);
   }
 `
 

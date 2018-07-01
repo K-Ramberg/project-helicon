@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SiteOpen from './styleComponents/SiteOpen';
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
     render() {
@@ -16,6 +17,7 @@ class Home extends Component {
                     unlikely of times, in the most unlikely of places. This application is intended to be a home for <br/>
                     you, as a user, to easily record and house those thoughts on the go. Be specific. Be vague. <br/>
                     Be what you want, but most importantly, be inspired, and build your own Helicon</p>
+                    <Link to='/users/new'>Get Started</Link>
             </SiteOpen>
         );
     }

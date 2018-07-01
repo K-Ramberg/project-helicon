@@ -6,10 +6,10 @@ class UserHome extends Component {
 
     state = {
         users: [],
-        newUser: {
-            name: '',
-            description: ''
-        }
+        // newUser: {
+        //     name: '',
+        //     description: ''
+        // }
     }
 
     componentDidMount(){
@@ -20,20 +20,20 @@ class UserHome extends Component {
         })
     }
 
-    handleFormChange = (event) => {
-        const keyNameOfInput = event.target.name
-        const userInput = event.target.value
-        const newState = {...this.state}
-        newState.newUser[keyNameOfInput] = userInput
-        this.setState(newState)
-    }
+    // handleFormChange = (event) => {
+    //     const keyNameOfInput = event.target.name
+    //     const userInput = event.target.value
+    //     const newState = {...this.state}
+    //     newState.newUser[keyNameOfInput] = userInput
+    //     this.setState(newState)
+    // }
 
-    handleFormSubmit = (event) => {
-        event.preventDefault()
-        axios.post('/api/users', this.state.newUser).then((res)=> {
-            this.props.history.push(`/users/${res.data._id}`)
-        })
-    }
+    // handleFormSubmit = (event) => {
+    //     event.preventDefault()
+    //     axios.post('/api/users', this.state.newUser).then((res)=> {
+    //         this.props.history.push(`/users/${res.data._id}`)
+    //     })
+    // }
 
 
     render() {
@@ -49,7 +49,7 @@ class UserHome extends Component {
                         </div>
                     )
                 })}
-                <form onSubmit={this.handleFormSubmit}>
+                {/* <form onSubmit={this.handleFormSubmit}>
                     <input type="text"
                     placeholder="username"
                     name="name"
@@ -61,7 +61,7 @@ class UserHome extends Component {
                     value={this.state.newUser.description}
                     onChange={this.handleFormChange}/>
                     <button type="submit">Add Yourself</button>
-                </form>
+                </form> */}
             </div>
         );
     }
