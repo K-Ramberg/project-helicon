@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
-import UserHome from './components/UserIndex';
-import UserShow from './components/UserShow';
+import UserHome from './components/userComponents/UserIndex';
+import UserShow from './components/userComponents/UserShow';
 import Home from './components/Home';
-import EditUser from './components/EditUser';
-import MuseShow from './components/MuseShow';
-import MuseCreate from './components/MuseCreate';
-import EditMuse from './components/EditMuse';
+import EditUser from './components/userComponents/EditUser';
+import MuseShow from './components/museComponents/MuseShow';
+import MuseCreate from './components/museComponents/MuseCreate';
+import EditMuse from './components/museComponents/EditMuse';
 import FreeComposition from './components/compositionComponents/FreeComposition';
 import UserComposition from './components/compositionComponents/UserComposition';
 import NewComposition from './components/compositionComponents/NewComposition';
 import MountainLake from './pictures/paul-gilmore-387697-unsplash.jpg'
 import MountainLakeSmall from './pictures/pietro-de-grandi-329904-unsplash.jpg'
 import NavBarWrapper from './components/styleComponents/NavBarWrapper';
-import NewUser from './components/NewUser';
+import NewUser from './components/userComponents/NewUser';
 
 const MainDiv = styled.div`
   max-width: 100%;

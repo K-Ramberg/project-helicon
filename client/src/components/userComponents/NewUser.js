@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import SiteOpen from './styleComponents/SiteOpen';
-import FormStyle from './styleComponents/FormStyle';
+import SiteOpen from '../styleComponents/SiteOpen';
+import FormStyle from '../styleComponents/FormStyle';
 
 class NewUser extends Component {
 
@@ -35,13 +35,13 @@ class NewUser extends Component {
                     <form onSubmit={this.handleFormSubmit}>
                         <label htmlFor="name">What should we call you?</label>
                         <input type="text"
-                            placeholder="username"
+                            placeholder="your User name"
                             name="name"
                             value={this.state.newUser.name}
                             onChange={this.handleFormChange} />
                         <label htmlFor="description">What would you like us to know about you?</label>    
                         <input type="text"
-                            placeholder="about Me"
+                            placeholder="tell us here"
                             name="description"
                             value={this.state.newUser.description}
                             onChange={this.handleFormChange} />
