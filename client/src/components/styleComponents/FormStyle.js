@@ -3,6 +3,19 @@ import styled from 'styled-components'
 const FormStyle = styled.div`
     form {
         margin-left: -5vw;
+        button {
+        margin: 5vh;
+        color: rgba(230,216,207,2.0);
+        font-size: 2vh;
+        text-decoration: none;
+        font-family: 'Kalam', cursive;
+        background-color: rgba(30,16,7,0.3);
+        border: 1vw solid rgba(0,0,0,0.0);
+        border-radius: 5vw;
+        :hover{
+            background-color: rgba(30,16,7,0.4);
+            }
+        }
     }
     label {
         margin: 0 10vw 0 10vw;
@@ -15,16 +28,29 @@ const FormStyle = styled.div`
         border-radius: 5vw;
         margin: 0 auto;
         display: block;
-        font-size: 3vh;
+        font-size: 2vh;
         font-family: 'Kalam', cursive;
         text-align: center;
         color: rgba(230,216,207,9.0);
-        width: 50vw;
+        width: 80vw;
         background-color: rgba(0,0,0,0.3);
         @media(min-width: 730px){
         background-color: rgba(0,0,0,0.5);
-        }  
+        }
     }
+    button {
+        margin: 5vh;
+        color: rgba(230,216,207,2.0);
+        font-size: 2vh;
+        text-decoration: none;
+        font-family: 'Kalam', cursive;
+        background-color: rgba(30,16,7,0.3);
+        border: 1vw solid rgba(0,0,0,0.0);
+        border-radius: 5vw;
+        :hover{
+            background-color: rgba(30,16,7,0.4);
+            }
+        }
 `
 
 export default FormStyle;

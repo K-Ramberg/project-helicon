@@ -5,7 +5,7 @@ const SiteOpen = styled.div`
   font-weight: 100;
   height: 100vh;
   width: 100%;
-  color: rgba(230,216,207,9.0);
+  color: rgba(230,216,207,0.9);
   background-color: rgba(0,0,0,0.6);
   @media(min-width: 730px){
     background-color: rgba(0,0,0,0.5);
@@ -32,15 +32,15 @@ const SiteOpen = styled.div`
   }
   a {
     margin: 0 6vw;
-    color: rgba(230,216,207,9.0);
+    color: rgba(230,216,207,0.9);
     font-size: 5vw;
     line-height: 6.5vh;
     text-decoration: none;
     font-family: 'Kalam', cursive;
-    background-color: rgba(30,16,7,0.1);
+    background-color: rgba(30,16,7,0.6);
     border-radius: 40%;
     :hover{
-      background-color: rgba(30,16,7,0.3);
+      background-color: rgba(30,16,7,0.9);
   }
 `
 
