@@ -20,6 +20,16 @@ const SiteOpen = styled.div`
     text-align: center;
     font-size: 2.5vh 
   }
+  h3 {
+    margin-left: 10vw;
+    font-size: 4vh;
+    color: rgba(230,230,240,0.9)
+  }
+  h5 {
+    display: inline;
+    color: rgba(230,240,230,0.9);
+    font-style: italic;
+  }
   div {
       font-size: 4vh;
       text-align: center;
@@ -33,7 +43,7 @@ const SiteOpen = styled.div`
   a {
     margin: 0 6vw;
     color: rgba(230,216,207,0.9);
-    font-size: 5vw;
+    font-size: 3vh;
     line-height: 6.5vh;
     text-decoration: none;
     font-family: 'Kalam', cursive;
