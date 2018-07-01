@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import SiteOpen from '../styleComponents/SiteOpen';
+import MuseSubStyle from '../styleComponents/MuseSubStyle';
 
 class MuseShow extends Component {
 
@@ -38,34 +40,34 @@ class MuseShow extends Component {
         const muse = this.state.muse
         const compositions = muse.compositions
         return (
-            <div>
-                <h4>{muse.name} by {user.name}</h4>
+            <SiteOpen>
+                <h1><h5>{muse.name}</h5> by {user.name}</h1>
                 <p>
-                    About: {muse.description}
+                    <h6>About:</h6> {muse.description}
                 </p>
-                <div>
-                    In the key of: {muse.keySignature}
-                </div>
-                <div>
-                    In {muse.timeSignature} time
-                </div>
-                <div>
-                    at {muse.tempoBps}bps
-                </div>
-                <div>
-                    A = {muse.tuningHz}Hz
-                </div>
+                <p>
+                    <h6>In the key of:</h6> {muse.keySignature}
+                </p>
+                <p>
+                    In <h5>{muse.timeSignature}</h5> time
+                </p>
+                <p>
+                    at <h5>{muse.tempoBps}</h5> bps
+                </p>
+                <p>
+                    A = <h5>{muse.tuningHz}Hz</h5>
+                </p>
                 <div>
                     <Link to={`/users/${user._id}/muses/${muse._id}/edit`}>Edit this</Link>
                 </div>
                 <div>
-                    <h4>Composition Ideas for {muse.name}</h4>
+                    <h4>Composition Ideas for <h5>{muse.name}</h5></h4>
                     {compositions.map((comp) => {
                         return (
-                            <div key={comp._id}>
+                            <MuseSubStyle key={comp._id}>
                                 <Link to={`/users/${user._id}/muses/${muse._id}/comps/${comp._id}`}>{comp.name}</Link>
                                 <button onClick={() => this.deleteComposition(comp._id)}>remove this compostion</button>
-                            </div>
+                            </MuseSubStyle>
                         )
                     })}
                 </div>
@@ -75,7 +77,7 @@ class MuseShow extends Component {
                 <p>
                     <Link to={`/users/${user._id}`}>back to {user.name}'s page</Link>
                 </p>
-            </div>
+            </SiteOpen>
         );
     }
 }

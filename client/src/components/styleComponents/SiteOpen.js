@@ -30,6 +30,12 @@ const SiteOpen = styled.div`
     color: rgba(230,240,230,0.9);
     font-style: italic;
   }
+  h6 {
+    display: inline;
+    font-size: 2.5vh;
+    text-align: left;
+    margin-right: 3vw;
+  }
   div {
       font-size: 4vh;
       text-align: center;
@@ -38,7 +44,7 @@ const SiteOpen = styled.div`
   p {
       font-size: 2vh;
       text-align: center;
-      margin: 4vh auto; 
+      margin: 0 auto; 
   }
   a {
     margin: 0 6vw;

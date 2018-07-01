@@ -19,6 +19,7 @@ import NewUser from './components/userComponents/NewUser';
 const MainDiv = styled.div`
   max-width: 100%;
   min-height: 100vh;
+  max-height: 100%;
   background-size: cover;
   background-image: url(${MountainLake});
   @media(max-width: 730px){
