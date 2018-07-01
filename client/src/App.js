@@ -29,7 +29,6 @@ const PageAlign = styled.div`
   background-color: rgba(0,0,0,0.4);
 `
 class App extends Component {
-
   render() {
     return (
       <Router>
