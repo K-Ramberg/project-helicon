@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import SiteOpen from '../styleComponents/SiteOpen';
 
 class UserHome extends Component {
 
@@ -19,8 +20,8 @@ class UserHome extends Component {
     render() {
         const users = this.state.users
         return (
-            <div>
-                <h4>Heres the user home</h4>
+            <SiteOpen>
+                <h1>Select User</h1>
                 {users.map((user)=> {
                     return(
                         <div key={user._id}>
@@ -30,7 +31,7 @@ class UserHome extends Component {
                     )
                 })}
                 <Link to="/users/new">Add another User</Link>
-            </div>
+            </SiteOpen>
         );
     }
 }

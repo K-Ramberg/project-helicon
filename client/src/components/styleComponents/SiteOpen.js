@@ -37,10 +37,10 @@ const SiteOpen = styled.div`
     line-height: 6.5vh;
     text-decoration: none;
     font-family: 'Kalam', cursive;
-    background-color: rgba(30,16,7,0.6);
+    background-color: rgba(0,0,0,0.25);
     border-radius: 40%;
     :hover{
-      background-color: rgba(30,16,7,0.9);
+      background-color: rgba(0,0,0,0.6);
   }
 `
 
