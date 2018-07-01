@@ -19,6 +19,24 @@ const MuseSubStyle = styled.div`
             background-color: rgba(30,16,7,0.4);
             }
         }
+        textarea {
+            border: 1vw solid rgba(0,0,0,0.0);
+            border-radius: 5vw;
+            margin: 0 auto;
+            display: block;
+            font-size: 2vh;
+            font-family: 'Kalam', cursive;
+            text-align: center;
+            color: rgba(230,216,207,9.0);
+            width: 80vw;
+            background-color: rgba(0,0,0,0.3);
+            @media(min-width: 730px){
+             background-color: rgba(0,0,0,0.5);
+                } 
+            }
+        div {
+            margin: 0;
+        }
 `
 
 export default MuseSubStyle;
