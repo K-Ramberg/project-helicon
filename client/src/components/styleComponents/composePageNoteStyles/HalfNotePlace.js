@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const HalfNotePlace = styled.div`
     border: 2px solid black;
-    background: white;
+    background: rgba(235, 212, 176, 1.0);
     border-radius: 100% 70% 100% 70%;
     width: 20px;
     height: 3.7vh;
