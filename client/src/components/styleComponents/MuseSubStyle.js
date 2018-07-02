@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const MuseSubStyle = styled.div`
+    margin: 0 auto;
     a {
         font-size: 2vh;
         color: rgba(250,220,220,0.8);
@@ -35,7 +36,13 @@ const MuseSubStyle = styled.div`
                 } 
             }
         div {
-            margin: 0;
+            margin: 0vh 0vh;
+        }
+        h1 {
+            margin-bottom: 1vh;
+        }
+        form {
+            margin-top: 0;
         }
 `
 

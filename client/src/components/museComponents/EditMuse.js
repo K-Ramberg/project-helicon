@@ -59,7 +59,7 @@ class EditMuse extends Component {
         const muse = this.state.muse
         return (
             <SiteOpen>
-                <h4>edit {muse.name} by {user.name} here</h4>
+                <h1>Edit <h5>{muse.name}</h5> by {user.name}</h1>
                 <FormStyle>
                     <MuseSubStyle>
                     <div>

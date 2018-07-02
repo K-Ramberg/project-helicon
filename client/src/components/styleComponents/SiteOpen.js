@@ -39,7 +39,7 @@ const SiteOpen = styled.div`
   div {
       font-size: 4vh;
       text-align: center;
-      margin: 4vh auto;
+      margin: 2vh auto;
   }
   p {
       font-size: 2vh;

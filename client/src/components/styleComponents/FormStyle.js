@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 const FormStyle = styled.div`
+    margin: 0 auto;
     form {
         margin-left: -5vw;
         button {
-        margin: 5vh;
+        margin: 2vh;
         color: rgba(230,216,207,2.0);
         font-size: 2vh;
         text-decoration: none;
@@ -51,6 +52,9 @@ const FormStyle = styled.div`
             background-color: rgba(30,16,7,0.4);
             }
         }
+    div {
+        margin: 0;
+    }
 `
 
 export default FormStyle;
