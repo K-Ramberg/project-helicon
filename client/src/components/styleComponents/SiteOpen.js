@@ -6,9 +6,9 @@ const SiteOpen = styled.div`
   height: 100vh;
   width: 100%;
   color: rgba(230,216,207,0.9);
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.5);
   @media(min-width: 730px){
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.4);
   }
   h1 {
     margin: 0 auto;

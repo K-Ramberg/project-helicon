@@ -9,7 +9,7 @@ class Home extends Component {
                 <h1>Helicon</h1>
                 <h4>The home of inspiration</h4>
                 <div>About Helicon</div>
-                <p>Mt. Helicon was the home of the nine muses of Greek and Roman myhtology. Historically <br/>
+                <p>Mt. Helicon was the home of the nine muses of Greek and Roman mythology. Historically <br/>
                     thought of as the symbols of inspiration and success in the arts, the muses, for many,<br/>
                     represent the embodiments of the beauties and joys of artful pursuits. The Greek <br/>
                     poet Pindar famously quoted, that to "carry a muse" is to achieve a success in the arts. <br/>

@@ -11,21 +11,9 @@ import EditMuse from './components/museComponents/EditMuse';
 import FreeComposition from './components/compositionComponents/FreeComposition';
 import UserComposition from './components/compositionComponents/UserComposition';
 import NewComposition from './components/compositionComponents/NewComposition';
-import MountainLake from './pictures/paul-gilmore-387697-unsplash.jpg'
-import MountainLakeSmall from './pictures/pietro-de-grandi-329904-unsplash.jpg'
 import NavBarWrapper from './components/styleComponents/NavBarWrapper';
 import NewUser from './components/userComponents/NewUser';
 
-const MainDiv = styled.div`
-  max-width: 100%;
-  min-height: 100vh;
-  max-height: 100%;
-  background-size: cover;
-  background-image: url(${MountainLake});
-  @media(max-width: 730px){
-    background-image: url(${MountainLakeSmall})
-  }
-`
 const PageAlign = styled.div`
   height: 8vh;
   background-color: rgba(0,0,0,0.4);
@@ -34,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <MainDiv>
+        <div>
           <NavBarWrapper>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
@@ -54,7 +42,7 @@ class App extends Component {
             <Route exact path='/users/:userId/muses/:museId/comps/new' component={NewComposition} />
             <Route exact path='/users/:userId/muses/:museId/comps/:compId' component={UserComposition} />
           </Switch>
-        </MainDiv>
+        </div>
       </Router>
     );
   }
