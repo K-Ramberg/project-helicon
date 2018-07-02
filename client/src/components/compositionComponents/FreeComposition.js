@@ -3,13 +3,19 @@ import styled from 'styled-components'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
+import ComposePage from '../styleComponents/ComposePage';
+import SiteOpen from '../styleComponents/SiteOpen';
+import {Link} from 'react-router-dom'
+import FormStyle from '../styleComponents/FormStyle';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
-    background: none;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    background-color: rgba(235, 212, 176, 1.0);
 `
 const BelowStaff = styled.div`
-    background: rgba(0,0,0,0.0);
+     background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    background-color: rgba(235, 212, 176, 1.0);
     height: 4vh;
 `
 const NotePlace = styled.div`
@@ -165,7 +171,7 @@ const LineEigthFlagStaff = styled.div`
 
 const NoteSpaceFormer = styled.div`
     float: left;
-    margin-top: 10vh;
+    padding-top: 10vh;
 `
 const PreDiv = styled.div`
     min-width: 3vw;
@@ -270,34 +276,38 @@ class FreeComposition extends Component {
     render() {
         return (
             <div>
-                <h1>Free Compose</h1>
-                <div>
-                    <button onClick={this.clearStaff}>Clear</button>
-                </div>
+                <ComposePage>
+                    <h1>Free Compose</h1>
+                    <FormStyle>
+                        <button onClick={this.clearStaff}>Clear</button>
+                    </FormStyle>
+                </ComposePage>
                 <NoteSpaceFormer>{this.state.beatSpaces.map((each, i) => {
                     return (<PreDiv key={i}>{i % 2 === 0 ? <BelowStaff></BelowStaff> : <StaffLine></StaffLine>}</PreDiv>)
                 })}</NoteSpaceFormer>
                 <div>
                     {this.state.comp.map((each, i) => {
                         return (
-                            <NoteSpaceFormer key={i}>
-                                {each.map((reach, index) => {
-                                    const keyVal = index
-                                    const compVal = i
-                                    return (
-                                        <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                            {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
-                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div> 
-                                                : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
-                                                : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
-                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> 
-                                                : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div> 
-                                                : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
-                                                : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div>: null}</StaffLine>}
-                                        </div>
-                                    )
-                                })}
-                            </NoteSpaceFormer>
+                            <ComposePage>
+                                <NoteSpaceFormer key={i}>
+                                    {each.map((reach, index) => {
+                                        const keyVal = index
+                                        const compVal = i
+                                        return (
+                                            <ComposePage key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
+                                                {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
+                                                    : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div>
+                                                        : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
+                                                            : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
+                                                    : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div>
+                                                        : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div>
+                                                            : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
+                                                                : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div> : null}</StaffLine>}
+                                            </ComposePage>
+                                        )
+                                    })}
+                                </NoteSpaceFormer>
+                            </ComposePage>
                         )
                     })}
                     <NoteSpaceFormer>
@@ -312,8 +322,13 @@ class FreeComposition extends Component {
                         <NotePlaceHolder indexProp={8} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <LineNotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
+                        <FormStyle>
+                            <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
+                        </FormStyle>
                     </NoteSpaceFormer>
+                    <SiteOpen>
+                        <Link to={`/`}>Go back</Link>
+                    </SiteOpen>
                 </div>
             </div>
         );

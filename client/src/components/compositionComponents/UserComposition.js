@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
+import FormStyle from '../styleComponents/FormStyle';
+import SiteOpen from '../styleComponents/SiteOpen';
+import ComposePage from '../styleComponents/ComposePage';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -298,13 +301,13 @@ class UserComposition extends Component {
         const muse = this.state.muse
         return (
             <div>
-                <h1>{this.state.user.name}'s {comp.name}</h1>
-                <div>
-                    <button onClick={this.submitNotesChange}>Commit Change</button>
-                </div>
-                <div>
-                    <button onClick={this.cancelChange}>Cancel</button>
-                </div>
+                <ComposePage>
+                    <h1>{this.state.user.name}'s {comp.name}</h1>
+                    <FormStyle>
+                        <button onClick={this.submitNotesChange}>Commit Change</button>
+                        <button onClick={this.cancelChange}>Cancel</button>
+                    </FormStyle>
+                </ComposePage>
                 <div>
                     {comp.notePlaces.map((each, i) => {
                         return (
@@ -313,16 +316,16 @@ class UserComposition extends Component {
                                     const keyVal = index
                                     const compVal = i
                                     return (
-                                        <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
+                                        <ComposePage key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
                                             {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
-                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div> 
-                                                : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
-                                                : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
-                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> 
-                                                : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div> 
-                                                : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
-                                                : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div>: null}</StaffLine>}
-                                        </div>
+                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div>
+                                                    : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
+                                                        : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
+                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div>
+                                                    : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div>
+                                                        : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
+                                                            : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div> : null}</StaffLine>}
+                                        </ComposePage>
                                     )
                                 })}
                             </NoteSpaceFormer>
@@ -340,12 +343,14 @@ class UserComposition extends Component {
                         <NotePlaceHolder indexProp={8} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <LineNotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
+                        <FormStyle>
+                            <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
+                        </FormStyle>
                     </NoteSpaceFormer>
                 </div>
-                <div>
+                <SiteOpen>
                     <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
-                </div>
+                </SiteOpen>
             </div>
         );
     }

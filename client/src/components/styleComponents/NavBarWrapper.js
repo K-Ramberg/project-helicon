@@ -8,10 +8,7 @@ const NavBarWrapper = styled.div`
     color: rgba(230,216,207,9.0);
     font-size: 5vw;
     line-height: 6.5vh;
-    text-decoration: none;
-    /* font-family: 'Homemade Apple', cursive; */
-    /* font-family: 'Kalam', cursive;
-    font-family: 'Handlee', cursive; */
+    text-decoration: none;    
     font-family: 'Parisienne', cursive;
     background-color: rgba(30,16,7,0.1);
     border-radius: 40%;

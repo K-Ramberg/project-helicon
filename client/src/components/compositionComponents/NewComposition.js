@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
+import ComposePage from '../styleComponents/ComposePage';
+import FormStyle from '../styleComponents/FormStyle';
+import SiteOpen from '../styleComponents/SiteOpen';
+import MuseSubStyle from '../styleComponents/MuseSubStyle';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -189,7 +193,7 @@ class NewComposition extends Component {
 
     cancelChange = () => {
         this.setState({
-            comp:{
+            comp: {
                 name: '',
                 notePlaces: []
             }
@@ -292,7 +296,7 @@ class NewComposition extends Component {
         const userInput = event.target.value
         const cloneState = { ...this.state }
         cloneState.comp.name = userInput
-        this.setState(cloneState) 
+        this.setState(cloneState)
     }
 
     submitNewComp = (event) => {
@@ -309,14 +313,16 @@ class NewComposition extends Component {
         const muse = this.state.muse
         return (
             <div>
-                <h1>{this.state.user.name}'s new Compostion</h1>
-                <div>
-                    <input type="text" name="name" value={comp.name} placeholder="name" onChange={this.handleNameChange}/>
-                    <button onClick={this.submitNewComp}>Add Compostion</button>
-                </div>
-                <div>
-                    <button onClick={this.cancelChange}>Cancel</button>
-                </div>
+                <ComposePage>
+                    <h1>{this.state.user.name}'s new Compostion</h1>
+                </ComposePage>
+                <FormStyle>
+                    <MuseSubStyle>
+                        <input type="text" name="name" value={comp.name} placeholder="name" onChange={this.handleNameChange} />
+                        <button onClick={this.submitNewComp}>Add Compostion</button>
+                        <button onClick={this.cancelChange}>Cancel</button>
+                    </MuseSubStyle>
+                </FormStyle>
                 <div>
                     {comp.notePlaces.map((each, i) => {
                         return (
@@ -325,16 +331,16 @@ class NewComposition extends Component {
                                     const keyVal = index
                                     const compVal = i
                                     return (
-                                        <div key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
-                                        {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
-                                            : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div> 
-                                            : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
-                                            : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
-                                            : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div> 
-                                            : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div> 
-                                            : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
-                                            : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div>: null}</StaffLine>}
-                                    </div>
+                                        <ComposePage key={index} onClick={(event) => this.existingNoteStateChange(event, keyVal, compVal)}>
+                                            {index % 2 === 0 ? <BelowStaff>{reach === 1 ? <div><NotePlace></NotePlace><QuarterFlagStaff></QuarterFlagStaff></div>
+                                                : reach === 2 ? <div><HalfNotePlace></HalfNotePlace><HalfFlagStaff></HalfFlagStaff></div>
+                                                    : reach === 3 ? <div><EigthNotePlace></EigthNotePlace><EigthFlagStaff></EigthFlagStaff></div>
+                                                        : reach == 4 ? <div><WholeNotePlace></WholeNotePlace></div> : null}</BelowStaff>
+                                                : <StaffLine>{reach === 1 ? <div><LineNotePlace></LineNotePlace><LineQuarterFlagStaff></LineQuarterFlagStaff></div>
+                                                    : reach === 2 ? <div><LineHalfNotePlace></LineHalfNotePlace><LineHalfFlagStaff></LineHalfFlagStaff></div>
+                                                        : reach === 3 ? <div><LineEigthNotePlace></LineEigthNotePlace><LineEigthFlagStaff></LineEigthFlagStaff></div>
+                                                            : reach === 4 ? <div><LineWholeNotePlace></LineWholeNotePlace></div> : null}</StaffLine>}
+                                        </ComposePage>
                                     )
                                 })}
                             </NoteSpaceFormer>
@@ -352,13 +358,16 @@ class NewComposition extends Component {
                         <NotePlaceHolder indexProp={8} changeComponentState={this.changeComponentState}></NotePlaceHolder>
                         <LineNotePlaceHolder indexProp={9} changeComponentState={this.changeComponentState}></LineNotePlaceHolder>
                         <NotePlaceHolder indexProp={10} changeComponentState={this.changeComponentState}></NotePlaceHolder>
-                        <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
+                        <FormStyle>
+                            <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
+                        </FormStyle>
                     </NoteSpaceFormer>
+
                 </div>
-                <div>
+                <SiteOpen>
                     <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
-                </div>
-            </div>
+                </SiteOpen>
+            </div >
         );
     }
 }
