@@ -12,10 +12,10 @@ class MuseCreate extends Component {
         newMuse: {
             name: '',
             description: '',
-            keySignature: '',
-            timeSignature: '',
-            tempoBps: '',
-            tuningHz: ''
+            keySignature: 'C',
+            timeSignature: '4:4',
+            tempoBps: '60',
+            tuningHz: '440'
         }
     }
 

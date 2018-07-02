@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
 import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
