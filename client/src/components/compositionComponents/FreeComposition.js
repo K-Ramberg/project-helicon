@@ -5,8 +5,9 @@ import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
 import ComposePage from '../styleComponents/ComposePage';
 import SiteOpen from '../styleComponents/SiteOpen';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FormStyle from '../styleComponents/FormStyle';
+import CompositionWrapper from '../styleComponents/CompositionWrapper';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -275,11 +276,12 @@ class FreeComposition extends Component {
 
     render() {
         return (
-            <div>
+            <CompositionWrapper>
                 <ComposePage>
                     <h1>Free Compose</h1>
                     <FormStyle>
                         <button onClick={this.clearStaff}>Clear</button>
+                        <Link to={`/`}>Go back</Link>
                     </FormStyle>
                 </ComposePage>
                 <NoteSpaceFormer>{this.state.beatSpaces.map((each, i) => {
@@ -326,11 +328,8 @@ class FreeComposition extends Component {
                             <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
                         </FormStyle>
                     </NoteSpaceFormer>
-                    <SiteOpen>
-                        <Link to={`/`}>Go back</Link>
-                    </SiteOpen>
                 </div>
-            </div>
+            </CompositionWrapper>
         );
     }
 }

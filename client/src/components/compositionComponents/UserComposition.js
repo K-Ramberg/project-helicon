@@ -8,6 +8,7 @@ import NoteValueSelector from './noteSetUp/NoteValueSelector';
 import FormStyle from '../styleComponents/FormStyle';
 import SiteOpen from '../styleComponents/SiteOpen';
 import ComposePage from '../styleComponents/ComposePage';
+import CompositionWrapper from '../styleComponents/CompositionWrapper';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -300,12 +301,13 @@ class UserComposition extends Component {
         const user = this.state.user
         const muse = this.state.muse
         return (
-            <div>
+            <CompositionWrapper>
                 <ComposePage>
                     <h1>{this.state.user.name}'s {comp.name}</h1>
                     <FormStyle>
                         <button onClick={this.submitNotesChange}>Commit Change</button>
                         <button onClick={this.cancelChange}>Cancel</button>
+                        <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
                     </FormStyle>
                 </ComposePage>
                 <div>
@@ -348,10 +350,7 @@ class UserComposition extends Component {
                         </FormStyle>
                     </NoteSpaceFormer>
                 </div>
-                <SiteOpen>
-                    <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
-                </SiteOpen>
-            </div>
+            </CompositionWrapper>
         );
     }
 }

@@ -11,7 +11,7 @@ const NavBarWrapper = styled.div`
     text-decoration: none;    
     font-family: 'Parisienne', cursive;
     background-color: rgba(30,16,7,0.1);
-    border-radius: 40%;
+    border-radius: 5vw;
     :hover{
       background-color: rgba(30,16,7,0.3);
   }
@@ -19,8 +19,6 @@ const NavBarWrapper = styled.div`
   width: 100%;
   height: 8vh;
   background: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.7), rgba(5,5,5,0.5));
-  /* background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"); */
-  border-radius: 0 0 5% 5%;
   :hover{
     background: linear-gradient(to bottom, rgba(200,200,200,0.2), rgba(255,255,255, 0.4));
   }

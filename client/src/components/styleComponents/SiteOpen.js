@@ -54,7 +54,7 @@ const SiteOpen = styled.div`
     text-decoration: none;
     font-family: 'Kalam', cursive;
     background-color: rgba(0,0,0,0.25);
-    border-radius: 40%;
+    border-radius: 5vw;
     :hover{
       background-color: rgba(0,0,0,0.6);
   }

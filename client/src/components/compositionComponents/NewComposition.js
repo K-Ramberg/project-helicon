@@ -9,6 +9,7 @@ import ComposePage from '../styleComponents/ComposePage';
 import FormStyle from '../styleComponents/FormStyle';
 import SiteOpen from '../styleComponents/SiteOpen';
 import MuseSubStyle from '../styleComponents/MuseSubStyle';
+import CompositionWrapper from '../styleComponents/CompositionWrapper';
 
 const StaffLine = styled.div`
     border-top: 0.39vh solid black;
@@ -312,17 +313,18 @@ class NewComposition extends Component {
         const user = this.state.user
         const muse = this.state.muse
         return (
-            <div>
+            <CompositionWrapper>
                 <ComposePage>
                     <h1>{this.state.user.name}'s new Compostion</h1>
+                    <FormStyle>
+                        <MuseSubStyle>
+                            <input type="text" name="name" value={comp.name} placeholder="name" onChange={this.handleNameChange} />
+                            <button onClick={this.submitNewComp}>Add Compostion</button>
+                            <button onClick={this.cancelChange}>Cancel</button>
+                            <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
+                        </MuseSubStyle>
+                    </FormStyle>
                 </ComposePage>
-                <FormStyle>
-                    <MuseSubStyle>
-                        <input type="text" name="name" value={comp.name} placeholder="name" onChange={this.handleNameChange} />
-                        <button onClick={this.submitNewComp}>Add Compostion</button>
-                        <button onClick={this.cancelChange}>Cancel</button>
-                    </MuseSubStyle>
-                </FormStyle>
                 <div>
                     {comp.notePlaces.map((each, i) => {
                         return (
@@ -362,12 +364,8 @@ class NewComposition extends Component {
                             <NoteValueSelector noteValue={this.state.noteValue} noteValueChange={this.noteValueChange}></NoteValueSelector>
                         </FormStyle>
                     </NoteSpaceFormer>
-
                 </div>
-                <SiteOpen>
-                    <Link to={`/users/${user._id}/muses/${muse._id}`}>Go back</Link>
-                </SiteOpen>
-            </div >
+            </CompositionWrapper>
         );
     }
 }
