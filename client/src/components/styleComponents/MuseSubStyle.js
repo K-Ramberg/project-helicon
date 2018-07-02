@@ -45,5 +45,4 @@ const MuseSubStyle = styled.div`
             margin-top: 0;
         }
 `
-
 export default MuseSubStyle;

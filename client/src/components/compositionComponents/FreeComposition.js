@@ -4,180 +4,27 @@ import NotePlaceHolder from './noteSetUp/NotePlaceHolder';
 import LineNotePlaceHolder from './noteSetUp/LineNotePlaceHolder';
 import NoteValueSelector from './noteSetUp/NoteValueSelector';
 import ComposePage from '../styleComponents/ComposePage';
-import SiteOpen from '../styleComponents/SiteOpen';
 import { Link } from 'react-router-dom'
 import FormStyle from '../styleComponents/FormStyle';
 import CompositionWrapper from '../styleComponents/CompositionWrapper';
-
-const StaffLine = styled.div`
-    border-top: 0.39vh solid black;
-    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-    background-color: rgba(235, 212, 176, 1.0);
-`
-const BelowStaff = styled.div`
-     background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-    background-color: rgba(235, 212, 176, 1.0);
-    height: 4vh;
-`
-const NotePlace = styled.div`
-    border: 1px solid black;
-    background: black;
-    border-radius: 100% 70% 100% 70%;
-    width: 20px;
-    height: 3.7vh;
-    float:left;
-    z-index: -2;
-`
-const LineNotePlace = styled.div`
-    border: 1px solid black;
-    background: black;
-    border-radius: 100% 70% 100% 70%;
-    width: 20px;
-    height: 3.5vh;
-    float: left;
-    margin-top: -1.9vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    z-index: 3;
-`
-
-const WholeNotePlace = styled.div`
-    border: 5px solid black;
-    background: none;
-    border-radius: 100% 100% 100% 100%;
-    width: 35px;
-    height: 3vh;
-    float:left;
-    z-index: 4;
-    margin-right: 160px;
-`
-const LineWholeNotePlace = styled.div`
-    border: 5px solid black;
-    background: none;
-    border-radius: 100% 100% 100% 100%;
-    width: 35px;
-    height: 3vh;
-    float: left;
-    margin-top: -2vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    z-index: 1;
-    margin-right: 160px;
-`
-
-const QuarterFlagStaff = styled.div`
-    border-right: 3px solid black;
-    height: 10vh; 
-    margin-top: -8vh;   
-    margin-left: -4px;
-    float: left;
-    z-index: -2;
-    margin-right: 40px;
-`
-
-const LineQuarterFlagStaff = styled.div`
-    border-right: 3px solid black;
-    height: 10vh; 
-    margin-top: -10vh;   
-    margin-left: -7px;
-    float: left;
-    z-index: 3;
-    margin-right: 40px;
-`
-const HalfNotePlace = styled.div`
-    border: 2px solid black;
-    background: white;
-    border-radius: 100% 70% 100% 70%;
-    width: 20px;
-    height: 3.7vh;
-    float:left;
-    z-index: -2;
-`
-
-const LineHalfNotePlace = styled.div`
-    border: 2px solid black;
-    background: white;
-    border-radius: 100% 70% 100% 70%;
-    width: 20px;
-    height: 3.7vh;
-    float:left;
-    margin-top: -1.9vh;
-    z-index: -2;
-`
-const HalfFlagStaff = styled.div`
-    border-right: 3px solid black;
-    height: 10vh; 
-    margin-top: -8vh;   
-    margin-left: -4px;
-    float: left;
-    z-index: -2;
-    margin-right: 80px;
-`
-
-const LineHalfFlagStaff = styled.div`
-    border-right: 3px solid black;
-    height: 10vh; 
-    margin-top: -10vh;   
-    margin-left: -7px;
-    float: left;
-    z-index: 3;
-    margin-right: 80px;
-`
-
-const EigthNotePlace = styled.div`
-    border: 2px solid black;
-    background: black;
-    border-radius: 100% 70% 100% 70%;
-    width: 20px;
-    height: 3.7vh;
-    float:left;
-    z-index: -2;
-`
-
-const LineEigthNotePlace = styled.div`
-    border: 2px solid black;
-    background: black;
-    border-radius: 100% 70% 100% 70%;
-    width: 20px;
-    height: 3.7vh;
-    float:left;
-    margin-top: -1.9vh;
-    z-index: -2;
-`
-const EigthFlagStaff = styled.div`
-    border-right: 3px solid rgba(0,0,0,0);
-    border-top: 4px solid black;
-    border-width: 20px;
-    border-left: 3px solid black;
-    height: 8vh; 
-    margin-top: -8vh;   
-    margin-left: -4px;
-    float: left;
-    z-index: -2;
-    margin-right: 5px;
-`
-
-const LineEigthFlagStaff = styled.div`
-     border-right: 3px solid rgba(0,0,0,0);
-    border-top: 4px solid black;
-    border-width: 20px;
-    border-left: 3px solid black;
-    height: 8vh; 
-    margin-top: -10vh;   
-    margin-left: -7px;
-    float: left;
-    z-index: 3;
-    margin-right: 5px;
-`
-
-const NoteSpaceFormer = styled.div`
-    float: left;
-    padding-top: 10vh;
-`
-const PreDiv = styled.div`
-    min-width: 3vw;
-    background: rgba(3,3,3,0.1);
-`
+import StaffLine from '../styleComponents/composePageNoteStyles/StaffLine'
+import BelowStaff from '../styleComponents/composePageNoteStyles/BelowStaff'
+import NotePlace from '../styleComponents/composePageNoteStyles/NotePlace'
+import LineNotePlace from '../styleComponents/composePageNoteStyles/LineNotePlace'
+import WholeNotePlace from '../styleComponents/composePageNoteStyles/WholeNotePlace'
+import LineWholeNotePlace from '../styleComponents/composePageNoteStyles/LineWholeNotePlace'
+import QuarterFlagStaff from '../styleComponents/composePageNoteStyles/QuarterFlagStaff'
+import LineQuarterFlagStaff from '../styleComponents/composePageNoteStyles/LineQuarterFlagStaff'
+import HalfNotePlace from '../styleComponents/composePageNoteStyles/HalfNotePlace'
+import LineHalfNotePlace from '../styleComponents/composePageNoteStyles/LineHalfNotePlace'
+import HalfFlagStaff from '../styleComponents/composePageNoteStyles/HalfFlagStaff'
+import LineHalfFlagStaff from '../styleComponents/composePageNoteStyles/HalfFlagStaff'
+import EigthNotePlace from '../styleComponents/composePageNoteStyles/EigthNotePlace'
+import LineEigthNotePlace from '../styleComponents/composePageNoteStyles/LineEigthNotePlace'
+import EigthFlagStaff from '../styleComponents/composePageNoteStyles/EigthFlagStaff'
+import LineEigthFlagStaff from '../styleComponents/composePageNoteStyles/LineEigthFlagStaff'
+import NoteSpaceFormer from '../styleComponents/composePageNoteStyles/NoteSpaceFormer'
+import PreDiv from '../styleComponents/composePageNoteStyles/PreDiv'
 
 class FreeComposition extends Component {
 

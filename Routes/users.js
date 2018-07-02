@@ -16,7 +16,6 @@ router.get('/:id', async (req, res) => {
   })
 })
 
-
 router.post('/', (req, res) => {
   const newUser = new UserModel(req.body)
   newUser.save().then((user) => {

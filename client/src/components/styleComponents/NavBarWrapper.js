@@ -37,6 +37,4 @@ const NavBarWrapper = styled.div`
       }
  }
 `
-
-
 export default NavBarWrapper;

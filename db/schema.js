@@ -37,7 +37,6 @@ const museSchema = new Schema({
     compositions: [compostionSchema]
 })
 
-
 const userSchema = new Schema({
     name: {
         type: String,

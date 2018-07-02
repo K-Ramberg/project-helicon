@@ -9,7 +9,6 @@ const LineNoteHolder = styled.div`
     background-color: rgba(235, 212, 176, 1.0);
     border-right: 4px solid black;
 `
-
 class LineNotePlaceHolder extends Component {
 
     handleClick = (event) => {

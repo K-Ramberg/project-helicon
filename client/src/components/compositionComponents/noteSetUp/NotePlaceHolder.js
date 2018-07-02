@@ -8,7 +8,6 @@ const NoteHolder = styled.div`
     background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
     background-color: rgba(235, 212, 176, 1.0);
 `
-
 class NotePlaceHolder extends Component {
 
     handleClick = (event) => {

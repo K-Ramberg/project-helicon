@@ -5,10 +5,10 @@ const SiteOpen = styled.div`
   font-weight: 100;
   height: 100vh;
   width: 100%;
-  color: rgba(230,216,207,0.9);
-  background-color: rgba(0,0,0,0.5);
+  color: rgba(220,206,197,0.9);
+  background-color: rgba(0,0,0,0.6);
   @media(min-width: 730px){
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.7);
   }
   h1 {
     margin: 0 auto;
@@ -59,5 +59,4 @@ const SiteOpen = styled.div`
       background-color: rgba(0,0,0,0.6);
   }
 `
-
 export default SiteOpen;

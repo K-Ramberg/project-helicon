@@ -23,5 +23,4 @@ const ComposePage = styled.div`
             }
         }
 `
-
 export default ComposePage;
