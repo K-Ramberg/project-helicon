@@ -7,6 +7,6 @@ const HalfNotePlace = styled.div`
     width: 20px;
     height: 3.7vh;
     float:left;
-    z-index: -2;
+    z-index: 2;
 `
 export default HalfNotePlace;
