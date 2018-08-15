@@ -6,7 +6,7 @@ body {
   height: 100%;
   background-size: cover;
   background-image: url('./pictures/paul-gilmore-387697-unsplash.jpg');
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media(max-width: 730px) {
